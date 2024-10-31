@@ -25,10 +25,10 @@ public class ScoreManager : MonoBehaviour
     protected void Update()
     {
         // Spacebar가 눌린 경우 canEarnPoints를 확인
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && canEarnPoints)
-        {
-            AddScore(1); // true 작동시 +1점 매서드 작동
-        }
+        //if (Keyboard.current.spaceKey.wasPressedThisFrame && canEarnPoints)
+        //{
+        //    AddScore(1); // true 작동시 +1점 매서드 작동
+        //}
     }
 
     protected void AddScore(int score) // Record에서 접근 가능
