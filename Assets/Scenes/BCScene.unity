@@ -155,7 +155,7 @@ MonoBehaviour:
   mapPrefabs:
   - {fileID: 1176751533018154014, guid: 61927278f2a5f77469aa075b7d660065, type: 3}
   - {fileID: 912238642974276475, guid: d95bbbba8e0437e448be965f79e73caf, type: 3}
-  initialMapCount: 8
+  initialMapCount: 5
   mapLength: 30
   player: {fileID: 1030369234}
 --- !u!4 &240350748

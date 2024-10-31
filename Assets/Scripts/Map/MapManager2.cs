@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapManager : MonoBehaviour
+public class MapManager2 : MonoBehaviour
 {
     public GameObject[] mapPrefabs; 
     public int initialMapCount = 5; 
     public float mapLength = 30f; 
+    public Transform player; 
 
     private Queue<GameObject> mapPool = new Queue<GameObject>(); 
     private Vector3 nextMapPosition = Vector3.zero; 
@@ -29,7 +30,15 @@ public class MapManager : MonoBehaviour
         return mapPrefabs[Random.Range(0, mapPrefabs.Length)];
     }
 
-    public void RepositionMap()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            RepositionMap();
+        }
+    }
+
+    private void RepositionMap()
     {
         GameObject oldMap = mapPool.Dequeue();
         oldMap.SetActive(false);
