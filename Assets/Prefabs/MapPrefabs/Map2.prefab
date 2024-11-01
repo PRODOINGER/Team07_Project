@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 1285617647444590483}
   - component: {fileID: 1435207801015735937}
   - component: {fileID: 8565304040174633022}
-  - component: {fileID: 4189692776996434341}
+  - component: {fileID: 5098629407267190619}
   m_Layer: 0
   m_Name: Map2
   m_TagString: NoBlink
@@ -359,22 +359,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628ef5e4d5ba1794da4785600fa5f5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4189692776996434341
-MonoBehaviour:
+--- !u!65 &5098629407267190619
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912238642974276475}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffe335a2c6ead3747b5467950ef356ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundPrefabs:
-  - {fileID: 1176751533018154014, guid: 61927278f2a5f77469aa075b7d660065, type: 3}
-  - {fileID: 912238642974276475}
-  colliderMerger: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 41.541016, y: 2.3754883, z: 48.243164}
+  m_Center: {x: 1.5543251, y: -7.243229, z: 14.672874}
 --- !u!1 &1043993225480915422
 GameObject:
   m_ObjectHideFlags: 0
