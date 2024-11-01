@@ -15,4 +15,9 @@ public class Scene : MonoBehaviour
         SceneManager.LoadScene("Start");
     }
 
+    public void QuitBttn()
+    {
+        Application.Quit();
+    }
+
 }
