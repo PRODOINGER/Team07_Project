@@ -41,7 +41,7 @@ public class GameOver : MonoBehaviour
 
     private void TriggerGameOver()
     {
-        
+        Debug.Log("GameOver");
         endPanel.SetActive(true);
         
     }
