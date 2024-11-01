@@ -27,6 +27,7 @@ namespace Supercyan.FreeSample
         private bool m_isGrounded; // 캐릭터가 바닥에 닿아 있는지 여부 확인
 
         private bool isRolling = false; // 현재 구르는 중인지 확인
+        private bool isMovingSideways = false; // 현재 좌우 이동 중인지 확인
 
         private List<Collider> m_collisions = new List<Collider>(); // 충돌 중인 콜라이더를 추적하는 리스트
 
@@ -67,53 +68,52 @@ namespace Supercyan.FreeSample
             }
 
             // 좌우 이동 입력 처리
-            if (m_isGrounded)
+            if (m_isGrounded && !isMovingSideways) // 현재 좌우 이동 중이 아닐 때만 이동 가능
             {
                 if (Input.GetKeyDown(KeyCode.A) && currentLane > 0)
                 {
                     currentLane--;
-                    MoveToLane(-1); // 왼쪽으로 이동
+                    StartCoroutine(MoveToLane(-1)); // 왼쪽으로 이동
                 }
                 else if (Input.GetKeyDown(KeyCode.D) && currentLane < 2)
                 {
                     currentLane++;
-                    MoveToLane(1); // 오른쪽으로 이동
+                    StartCoroutine(MoveToLane(1)); // 오른쪽으로 이동
                 }
             }
         }
 
-        private void MoveToLane(int direction)
+        private IEnumerator MoveToLane(int direction)
         {
+            // 좌우 이동 시작 - 충돌과 물리 효과 비활성화
+            isMovingSideways = true;
+            m_rigidBody.isKinematic = true; // 물리 효과 비활성화
+
             // 방향에 따라 점프력을 주어 캐릭터를 이동
-            m_rigidBody.AddForce(new Vector3(direction * m_sideJumpForce, m_jumpForce, 0), ForceMode.Impulse);
-
-            // 목표 위치 설정 후 부드럽게 이동 시작
             Vector3 targetPosition = new Vector3((currentLane - 1) * laneDistance, transform.position.y, transform.position.z);
-            StartCoroutine(SmoothMoveToLane(targetPosition));
-        }
-
-        private IEnumerator SmoothMoveToLane(Vector3 targetPosition)
-        {
-            // 목표 위치에 부드럽게 도달할 때까지 이동
             while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, m_moveSpeed * Time.deltaTime);
                 yield return null;
             }
+
             transform.position = targetPosition; // 정확한 목표 위치로 고정
+
+            // 이동 종료 - 충돌과 물리 효과 재활성화
+            m_rigidBody.isKinematic = false; // 물리 효과 재활성화
+            isMovingSideways = false;
         }
 
         private IEnumerator RollCoroutine()
         {
             isRolling = true;
 
-
             // 기존 CapsuleCollider의 높이를 1/3로 줄임
             float originalHeight = m_collider.height;
             m_collider.height = originalHeight / 3;
 
-            // 구르기 애니메이션 길이 동안 대기 (1초 동안 구르기)
-            yield return new WaitForSeconds(1f);
+            // 구르기 애니메이션 길이 동안 대기 (0.5초 동안 구르기)
+            yield return new WaitForSeconds(0.5f);
 
             // 구르기 종료 후 CapsuleCollider 높이를 원래대로 복구
             m_collider.height = originalHeight;
