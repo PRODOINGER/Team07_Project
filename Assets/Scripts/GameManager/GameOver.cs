@@ -8,6 +8,7 @@ public class GameOver : MonoBehaviour
     private int collisionCount = 0; // 장애물과의 충돌 횟수
     private const int maxCollisions = 3; // 최대 충돌 횟수 설정
     public GameObject[] lives; // 생명 이미지 배열
+    public GameObject endPanel; // EndPanel 오브젝트를 참조할 변수
 
     private void Start()
     {
@@ -40,7 +41,8 @@ public class GameOver : MonoBehaviour
 
     private void TriggerGameOver()
     {
-        // Retry 화면으로 이동
-        SceneManager.LoadScene("RetryScene");
+        
+        endPanel.SetActive(true);
+        
     }
 }
