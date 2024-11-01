@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7873771893693041365}
   m_Layer: 0
   m_Name: cb-apartment-J
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 3015504996204655669}
   m_Layer: 0
   m_Name: land (2)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 3149948134899485571}
   m_Layer: 0
   m_Name: paved road straight (2)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 4636079758284718984}
   m_Layer: 0
   m_Name: cb-apartment-E
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 8001613522772341315}
   m_Layer: 0
   m_Name: land (6)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 6844802577956087187}
   m_Layer: 0
   m_Name: land (5)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 708946571811990586}
   m_Layer: 0
   m_Name: paved road straight (3)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 2140541310094872159}
   m_Layer: 0
   m_Name: land
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 4998102687841000502}
   m_Layer: 0
   m_Name: cb-apartment-A
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1036,7 +1036,7 @@ GameObject:
   - component: {fileID: 5637578889518460419}
   m_Layer: 0
   m_Name: cb-apartment-A (1)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1136,7 +1136,7 @@ GameObject:
   - component: {fileID: 7960527828485157678}
   m_Layer: 0
   m_Name: paved road pedestrian crossing
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 4409250953211222200}
   m_Layer: 0
   m_Name: land (4)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1346,7 +1346,7 @@ GameObject:
   - component: {fileID: 7835070507592196056}
   m_Layer: 0
   m_Name: paved road straight (1)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 4336437896475375259}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (2)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1556,7 +1556,7 @@ GameObject:
   - component: {fileID: 6868595616568974438}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (8)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 7924990070215200312}
   m_Layer: 0
   m_Name: cb-apartment-D
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1761,7 +1761,7 @@ GameObject:
   - component: {fileID: 8329171436170617927}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (7)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1866,7 +1866,7 @@ GameObject:
   - component: {fileID: 1805512356152351334}
   m_Layer: 0
   m_Name: paved road straight (4)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1971,7 +1971,7 @@ GameObject:
   - component: {fileID: 5497956605952544077}
   m_Layer: 0
   m_Name: land (7)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2076,7 +2076,7 @@ GameObject:
   - component: {fileID: 7434287286684838497}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (6)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2181,7 +2181,7 @@ GameObject:
   - component: {fileID: 7080645740045040341}
   m_Layer: 0
   m_Name: cb-apartment-B
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2281,7 +2281,7 @@ GameObject:
   - component: {fileID: 8925952874042603871}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (1)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2386,7 +2386,7 @@ GameObject:
   - component: {fileID: 4305909274686714232}
   m_Layer: 0
   m_Name: land (1)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2491,7 +2491,7 @@ GameObject:
   - component: {fileID: 6928175882376122437}
   m_Layer: 0
   m_Name: paved road straight
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2596,7 +2596,7 @@ GameObject:
   - component: {fileID: 7440398099314294842}
   m_Layer: 0
   m_Name: paved road straight (5)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2701,7 +2701,7 @@ GameObject:
   - component: {fileID: 8702430002967167434}
   m_Layer: 0
   m_Name: land (3)
-  m_TagString: Untagged
+  m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
