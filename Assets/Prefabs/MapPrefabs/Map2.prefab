@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 1285617647444590483}
   - component: {fileID: 1435207801015735937}
   - component: {fileID: 8565304040174633022}
-  - component: {fileID: 5098629407267190619}
+  - component: {fileID: -818838183103665619}
   m_Layer: 0
   m_Name: Map2
   m_TagString: NoBlink
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628ef5e4d5ba1794da4785600fa5f5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &5098629407267190619
+--- !u!65 &-818838183103665619
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,8 +378,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 41.541016, y: 2.3754883, z: 48.243164}
-  m_Center: {x: 1.5543251, y: -7.243229, z: 14.672874}
+  m_Size: {x: 41.541016, y: 2.3754883, z: 61.92301}
+  m_Center: {x: 1.5543251, y: -7.243229, z: 15.26878}
 --- !u!1 &1043993225480915422
 GameObject:
   m_ObjectHideFlags: 0
