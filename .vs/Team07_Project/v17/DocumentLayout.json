@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|c:\\users\\psyij\\desktop\\\uC784\uC2DC\\team07_project\\assets\\scripts\\gamemanager\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\assets\\scripts\\score\\scoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\score\\scoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\assets\\scripts\\score\\scorepoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\score\\scorepoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\assets\\scripts\\gamemanager\\gameover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager\\gameover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\assets\\scripts\\score\\record.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\score\\record.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\assets\\scripts\\character\\charactercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFA0F15A-F194-6E2F-A7A9-D724E7CB6CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\character\\charactercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\MapManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\MapManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\GameManager\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager\\GameManager.cs",
+              "ToolTip": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\GameManager\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager\\GameManager.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvxEAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T02:29:34.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Record.cs",
+              "DocumentMoniker": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\Score\\Record.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Score\\Record.cs",
+              "ToolTip": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\Score\\Record.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Score\\Record.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T11:40:55.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameOver.cs",
+              "DocumentMoniker": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\GameManager\\GameOver.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager\\GameOver.cs",
+              "ToolTip": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\GameManager\\GameOver.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager\\GameOver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T11:44:03.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ScoreManager.cs",
+              "DocumentMoniker": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\Score\\ScoreManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Score\\ScoreManager.cs",
+              "ToolTip": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\Score\\ScoreManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Score\\ScoreManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T11:40:06.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ScorePoint.cs",
+              "DocumentMoniker": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\Score\\ScorePoint.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Score\\ScorePoint.cs",
+              "ToolTip": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\Score\\ScorePoint.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Score\\ScorePoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T06:50:56.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CharacterControl.cs",
+              "DocumentMoniker": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\Character\\CharacterControl.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Character\\CharacterControl.cs",
+              "ToolTip": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\Scripts\\Character\\CharacterControl.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Character\\CharacterControl.cs",
+              "ViewState": "AgIAAOcAAAAAAAAAAAAUwPoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T05:59:54.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MapManager.cs",
+              "DocumentMoniker": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\MapManager.cs",
+              "RelativeDocumentMoniker": "Assets\\MapManager.cs",
+              "ToolTip": "C:\\Users\\psyij\\Desktop\\\uC784\uC2DC\\Team07_Project\\Assets\\MapManager.cs",
+              "RelativeToolTip": "Assets\\MapManager.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T11:39:08.289Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
