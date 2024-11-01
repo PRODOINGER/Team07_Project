@@ -314,6 +314,9 @@ MonoBehaviour:
   - {fileID: 912238642974276475, guid: d95bbbba8e0437e448be965f79e73caf, type: 3}
   initialMapCount: 10
   mapLength: 34
+  obstaclePrefab: {fileID: 7904013763936966947, guid: 344e79d2c7c1003488e79d5a3d031ca4, type: 3}
+  minZDistance: 1
+  maxZDistance: 2
 --- !u!4 &240350748
 Transform:
   m_ObjectHideFlags: 0
@@ -1248,12 +1251,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1282474555062272101, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
+      propertyPath: m_jumpForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282474555062272101, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       propertyPath: m_moveSpeed
-      value: 7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1282474555062272101, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       propertyPath: m_sideJumpForce
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1350703527288031278, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
+      propertyPath: m_Mass
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
