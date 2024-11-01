@@ -1,26 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private ScoreManager scoreManager;
+    public Text CurScore;
+    public Text CurScoreNum;
 
-    private void Start()
+    public Button startButton;
+    public ScoreManager scoreManager;
+
+    void Start()
     {
-        // ScoreManager 컴포넌트 가져오기
-        scoreManager = FindObjectOfType<ScoreManager>();
-        if (scoreManager == null)
+        // 게임 시작 텍스트 숨기기
+        CurScore.gameObject.SetActive(false);
+        CurScoreNum.gameObject.SetActive(false);
+
+        // 버튼에 StartGame 메서드 연결
+        startButton.onClick.AddListener(StartGame);
+
+        // ScoreManager가 존재하면 초기 점수 UI 업데이트
+        if (scoreManager != null)
         {
-            Debug.LogError("ScoreManager를 찾을 수 없습니다.");
+            scoreManager.UpdateScoreUI(); 
         }
     }
 
-    public void AddScore(int points)
+    void StartGame()
     {
+        CurScore.gameObject.SetActive(true);
+       CurScoreNum.gameObject.SetActive(true);
+
+        // 점수 초기화 및 UI 업데이트
         if (scoreManager != null)
         {
-            scoreManager.AddScore(points);
+            scoreManager.AddScore(0); // 초기화 용도로 0점 추가
         }
     }
 
