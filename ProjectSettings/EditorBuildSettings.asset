@@ -6,9 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/TatleScene.unity
     guid: 8518bbd2770c1354597bfbae6bc0a20d
   - enabled: 1
     path: Assets/Scenes/BCScene.unity
+=======
+    path: Assets/Scene/Start.unity
+    guid: 54d57a49b87a3f7468e686600a20aa5f
+  - enabled: 1
+    path: Assets/Scene/BCScene.unity
+>>>>>>> Dev
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
