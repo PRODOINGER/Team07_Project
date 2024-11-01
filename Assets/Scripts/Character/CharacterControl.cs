@@ -27,7 +27,6 @@ namespace Supercyan.FreeSample
         private bool m_isGrounded; // 캐릭터가 바닥에 닿아 있는지 여부 확인
 
         private bool isRolling = false; // 현재 구르는 중인지 확인
-        private bool isMovingSideways = false; // 현재 좌우 이동 중인지 확인
 
         private List<Collider> m_collisions = new List<Collider>(); // 충돌 중인 콜라이더를 추적하는 리스트
 
@@ -68,45 +67,54 @@ namespace Supercyan.FreeSample
             }
 
             // 좌우 이동 입력 처리
-            if (m_isGrounded && !isMovingSideways) // 현재 좌우 이동 중이 아닐 때만 이동 가능
+            if (m_isGrounded)
             {
                 if (Input.GetKeyDown(KeyCode.A) && currentLane > 0)
                 {
                     currentLane--;
-                    StartCoroutine(MoveToLane(-1)); // 왼쪽으로 이동
+                    MoveToLane(-1); // 왼쪽으로 이동
                 }
                 else if (Input.GetKeyDown(KeyCode.D) && currentLane < 2)
                 {
                     currentLane++;
-                    StartCoroutine(MoveToLane(1)); // 오른쪽으로 이동
+                    MoveToLane(1); // 오른쪽으로 이동
                 }
             }
         }
 
-        private IEnumerator MoveToLane(int direction)
+        private void MoveToLane(int direction)
         {
-            // 좌우 이동 시작 - 충돌과 물리 효과 비활성화
-            isMovingSideways = true;
-            m_rigidBody.isKinematic = true; // 물리 효과 비활성화
-
             // 방향에 따라 점프력을 주어 캐릭터를 이동
+            m_rigidBody.AddForce(new Vector3(direction * m_sideJumpForce, m_jumpForce, 0), ForceMode.Impulse);
+
+            // 목표 위치 설정 후 부드럽게 이동 시작
+            StartCoroutine(SmoothMoveToLane(direction));
+        }
+
+        private IEnumerator SmoothMoveToLane(int direction)
+        {
+            // 목표 위치를 동적으로 업데이트하여 Z축 이동을 반영
             Vector3 targetPosition = new Vector3((currentLane - 1) * laneDistance, transform.position.y, transform.position.z);
-            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+
+            while (Mathf.Abs(transform.position.x - targetPosition.x) > 0.1f)
             {
+                // 매 프레임마다 Z축 위치를 업데이트하여 움직임을 부드럽게 함
+                targetPosition.z = transform.position.z;
+
+                // 캐릭터를 targetPosition으로 이동
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, m_moveSpeed * Time.deltaTime);
+
                 yield return null;
             }
 
-            transform.position = targetPosition; // 정확한 목표 위치로 고정
-
-            // 이동 종료 - 충돌과 물리 효과 재활성화
-            m_rigidBody.isKinematic = false; // 물리 효과 재활성화
-            isMovingSideways = false;
+            // 정확한 목표 위치로 고정
+            transform.position = targetPosition;
         }
 
         private IEnumerator RollCoroutine()
         {
             isRolling = true;
+
 
             // 기존 CapsuleCollider의 높이를 1/3로 줄임
             float originalHeight = m_collider.height;
@@ -171,7 +179,7 @@ namespace Supercyan.FreeSample
                     }
                     m_isGrounded = true;
                 }
-
+                
                 // 충돌한 오브젝트가 예외 태그를 가졌다면 깜빡임 생략
                 if (collision.gameObject.CompareTag(exceptionTag))
                 {
