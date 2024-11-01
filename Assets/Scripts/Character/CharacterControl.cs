@@ -19,13 +19,14 @@ namespace Supercyan.FreeSample
 
         [SerializeField] private Animator m_animator = null; // 애니메이터 컴포넌트 참조
         [SerializeField] private Rigidbody m_rigidBody = null; // Rigidbody 컴포넌트 참조
+        [SerializeField] private CapsuleCollider m_collider = null; // 캐릭터의 CapsuleCollider 참조
 
         private float m_jumpTimeStamp = 0; // 점프 간격을 체크하는 시간 스탬프
         private float m_minJumpInterval = 0.25f; // 최소 점프 간격
         private bool m_jumpInput = false; // 점프 입력을 받았는지 확인
         private bool m_isGrounded; // 캐릭터가 바닥에 닿아 있는지 여부 확인
 
-        private bool isScaledDown = false; //현재 크기가 줄어든 상태인지 확인
+        private bool isRolling = false; // 현재 구르는 중인지 확인
 
         private List<Collider> m_collisions = new List<Collider>(); // 충돌 중인 콜라이더를 추적하는 리스트
 
@@ -37,8 +38,8 @@ namespace Supercyan.FreeSample
             // 필요한 컴포넌트를 초기화하고 확인
             if (!m_animator) { m_animator = gameObject.GetComponent<Animator>(); }
             if (!m_rigidBody) { m_rigidBody = gameObject.GetComponent<Rigidbody>(); }
+            if (!m_collider) { m_collider = gameObject.GetComponent<CapsuleCollider>(); }
             renderers = GetComponentsInChildren<Renderer>(); // 자식 포함 모든 Renderer 컴포넌트 가져오기
-
         }
 
         private void Start()
@@ -52,15 +53,11 @@ namespace Supercyan.FreeSample
 
         private void Update()
         {
-            // Shift 버튼을 눌렀을 때 크기를 절반으로 줄이는 코루틴 실행
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !isScaledDown)
+            // Shift 버튼을 눌렀을 때 구르기 코루틴 실행
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling)
             {
-                StartCoroutine(ScaleDownCoroutine());
-            }
-
-            if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
-            {
-                m_jumpInput = true;
+                m_animator.SetTrigger("RollTrigger");
+                StartCoroutine(RollCoroutine());
             }
 
             // 점프 입력이 발생하면 m_jumpInput을 true로 설정
@@ -104,6 +101,23 @@ namespace Supercyan.FreeSample
                 yield return null;
             }
             transform.position = targetPosition; // 정확한 목표 위치로 고정
+        }
+
+        private IEnumerator RollCoroutine()
+        {
+            isRolling = true;
+
+
+            // 기존 CapsuleCollider의 높이를 1/3로 줄임
+            float originalHeight = m_collider.height;
+            m_collider.height = originalHeight / 3;
+
+            // 구르기 애니메이션 길이 동안 대기 (1초 동안 구르기)
+            yield return new WaitForSeconds(1f);
+
+            // 구르기 종료 후 CapsuleCollider 높이를 원래대로 복구
+            m_collider.height = originalHeight;
+            isRolling = false;
         }
 
         private void FixedUpdate()
@@ -235,21 +249,5 @@ namespace Supercyan.FreeSample
             }
             isBlinking = false; // 깜빡임 종료
         }
-
-        private IEnumerator ScaleDownCoroutine()
-        {
-            isScaledDown = true;
-
-            // 원래 크기를 저장하고 절반 크기로 변경
-            Vector3 originalScale = transform.localScale;
-            transform.localScale = originalScale * 0.5f;
-
-            yield return new WaitForSeconds(1f); // 1초 대기
-
-            // 크기를 원래대로 복구
-            transform.localScale = originalScale;
-            isScaledDown = false;
-        }
-
     }
 }
