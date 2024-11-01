@@ -39,15 +39,12 @@ public class MapManager : MonoBehaviour
 
     private void SpawnObstacleOnMap(GameObject map)
     {
-
         int random = Random.Range(0, obstaclePrefab.Length);
         float obstacleX = new float[] { 0, 8, -8 }[Random.Range(0, 3)];
         float obstacleZ = nextMapPosition.z + Random.Range(minZDistance, maxZDistance);
 
         Vector3 obstaclePosition = new Vector3(obstacleX, map.transform.position.y - 6, obstacleZ);
         Instantiate(obstaclePrefab[random], obstaclePosition, Quaternion.identity, map.transform);
-
-
     }
 
     public void RepositionMap()
