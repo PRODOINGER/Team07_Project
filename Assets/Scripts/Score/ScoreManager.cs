@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public Text curScoreTxt; // 현재 점수 표기
     public int curScore = 0;
 
-    protected virtual void UpdateScoreUI() // 필요시 Record 에서 추가수정
+    public virtual void UpdateScoreUI() // 필요시 Record 에서 추가수정
     {
         curScoreTxt.text = curScore.ToString(); // 현재점수 text 
     }
