@@ -77,22 +77,14 @@ namespace Supercyan.FreeSample
                 if (Input.GetKeyDown(KeyCode.A) && currentLane > 0)
                 {
                     currentLane--;
-<<<<<<< HEAD
-                    StartCoroutine(MoveToLane(-1)); // 왼쪽으로 이동
                     SoundManager.instance.SFXPlay("Move", MoveClip); //이동키 입력되면 자동으로 이동 효과음 출력
-=======
                     MoveToLane(-1); // 왼쪽으로 이동
->>>>>>> Dev
                 }
                 else if (Input.GetKeyDown(KeyCode.D) && currentLane < 2)
                 {
                     currentLane++;
-<<<<<<< HEAD
-                    StartCoroutine(MoveToLane(1)); // 오른쪽으로 이동
                     SoundManager.instance.SFXPlay("Move", MoveClip); //이동키 입력되면 자동으로 이동 효과음 출력
-=======
                     MoveToLane(1); // 오른쪽으로 이동
->>>>>>> Dev
                 }
             }
         }

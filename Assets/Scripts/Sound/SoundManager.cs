@@ -16,29 +16,29 @@ public class SoundManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            DontDestroyOnLoad(gameObject);
         }
-
         else
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    private void Start()
     {
-        for (int i = 0; i < BgmList.Length; i++)
+        // 자동으로 첫 번째 BGM을 재생하도록 설정
+        if (BgmList.Length > 0)
         {
-            BackguoundSound(BgmList[i]);
+            BackgroundSound(BgmList[0]);
         }
     }
 
-    public void BgmSoundVoiume(float val)
+    public void BgmSoundVolume(float val)
     {
         mixer.SetFloat("BgmSound", Mathf.Log10(val) * 20);
     }
-    public void SfxSoundVoiume(float val)
+
+    public void SfxSoundVolume(float val)
     {
         mixer.SetFloat("SfxSound", Mathf.Log10(val) * 20);
     }
@@ -53,12 +53,11 @@ public class SoundManager : MonoBehaviour
         Destroy(go, clip.length);
     }
 
-    public void BackguoundSound(AudioClip clip)
+    public void BackgroundSound(AudioClip clip)
     {
         BgmSound.outputAudioMixerGroup = mixer.FindMatchingGroups("BGM")[0];
         BgmSound.clip = clip;
         BgmSound.loop = true;
-        BgmSound.volume = 0.1f;
         BgmSound.Play();
     }
 }
