@@ -171,7 +171,7 @@ namespace Supercyan.FreeSample
                     }
                     m_isGrounded = true;
                 }
-
+                
                 // 충돌한 오브젝트가 예외 태그를 가졌다면 깜빡임 생략
                 if (collision.gameObject.CompareTag(exceptionTag))
                 {
