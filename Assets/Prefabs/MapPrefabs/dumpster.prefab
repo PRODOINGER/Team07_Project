@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2566782936306763242}
   - component: {fileID: 382407957396840593}
   - component: {fileID: 7828737042180389231}
+  - component: {fileID: 3469366736387427831}
   m_Layer: 0
   m_Name: dumpster
   m_TagString: Untagged
@@ -105,3 +106,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3671048, y: 1.4973968, z: 1.3954935}
   m_Center: {x: 0, y: 0.7486984, z: 0.0041514337}
+--- !u!114 &3469366736387427831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904013763936966947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13b1afa9443277459ece30f8cbebf3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacle: {fileID: 7904013763936966947}
