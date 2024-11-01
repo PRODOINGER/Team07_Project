@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Trigger
   - NoBlink
+  - Box
   layers:
   - Default
   - TransparentFX
