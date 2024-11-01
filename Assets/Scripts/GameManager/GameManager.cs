@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
         CurScore.gameObject.SetActive(false);
         CurScoreNum.gameObject.SetActive(false);
 
-        // 버튼에 StartGame 메서드 연결
-        startButton.onClick.AddListener(StartGame);
 
         // ScoreManager가 존재하면 초기 점수 UI 업데이트
         if (scoreManager != null)
