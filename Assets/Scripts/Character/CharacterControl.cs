@@ -34,6 +34,10 @@ namespace Supercyan.FreeSample
         private int currentLane = 1; // 현재 트랙 위치 (0: 왼쪽, 1: 중앙, 2: 오른쪽)
         private float laneDistance = 8f; // 트랙 간의 거리
 
+        public AudioClip JumpClip;
+        public AudioClip RollClip;
+        public AudioClip MoveClip;
+
         private void Awake()
         {
             // 필요한 컴포넌트를 초기화하고 확인
@@ -65,6 +69,7 @@ namespace Supercyan.FreeSample
             if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
             {
                 m_jumpInput = true;
+                SoundManager.instance.SFXPlay("Jump",JumpClip); //점프키 입력되면 자동으로 점프 효과음 출력
             }
 
             // 좌우 이동 입력 처리
@@ -74,11 +79,13 @@ namespace Supercyan.FreeSample
                 {
                     currentLane--;
                     StartCoroutine(MoveToLane(-1)); // 왼쪽으로 이동
+                    SoundManager.instance.SFXPlay("Move", MoveClip); //이동키 입력되면 자동으로 이동 효과음 출력
                 }
                 else if (Input.GetKeyDown(KeyCode.D) && currentLane < 2)
                 {
                     currentLane++;
                     StartCoroutine(MoveToLane(1)); // 오른쪽으로 이동
+                    SoundManager.instance.SFXPlay("Move", MoveClip); //이동키 입력되면 자동으로 이동 효과음 출력
                 }
             }
         }
@@ -107,6 +114,7 @@ namespace Supercyan.FreeSample
         private IEnumerator RollCoroutine()
         {
             isRolling = true;
+            SoundManager.instance.SFXPlay("Roll", RollClip); //구르기가 정상적으로 시작되면 자동으로 구르기 효과음 출력
 
             // 기존 CapsuleCollider의 높이를 1/3로 줄임
             float originalHeight = m_collider.height;
