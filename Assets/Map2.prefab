@@ -111,7 +111,6 @@ GameObject:
   - component: {fileID: 791428615388905783}
   - component: {fileID: 374353731322737715}
   - component: {fileID: 6933564685914980625}
-  - component: {fileID: 3015504996204655669}
   m_Layer: 0
   m_Name: land (2)
   m_TagString: NoBlink
@@ -184,27 +183,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3015504996204655669
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796116829075526371}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.02678, z: 9}
-  m_Center: {x: 0, y: 1.0133892, z: 0.00000023841858}
 --- !u!1 &844169355405968081
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +194,6 @@ GameObject:
   - component: {fileID: 7867719283387060642}
   - component: {fileID: 7349495892933302583}
   - component: {fileID: 6615707559190079459}
-  - component: {fileID: 3149948134899485571}
   m_Layer: 0
   m_Name: paved road straight (2)
   m_TagString: NoBlink
@@ -289,27 +266,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3149948134899485571
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844169355405968081}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0, y: 1.1352843, z: 0}
 --- !u!1 &912238642974276475
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +277,7 @@ GameObject:
   - component: {fileID: 1285617647444590483}
   - component: {fileID: 1435207801015735937}
   - component: {fileID: 8565304040174633022}
+  - component: {fileID: 7724713536520171336}
   m_Layer: 0
   m_Name: Map2
   m_TagString: NoBlink
@@ -402,6 +359,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628ef5e4d5ba1794da4785600fa5f5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7724713536520171336
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912238642974276475}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 41.541016, y: 2.3754883, z: 36.226658}
+  m_Center: {x: 1.5543251, y: -7.243229, z: 15.483297}
 --- !u!1 &1043993225480915422
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +491,6 @@ GameObject:
   - component: {fileID: 4757328152354616356}
   - component: {fileID: 3182574654539461146}
   - component: {fileID: 2591134865746162144}
-  - component: {fileID: 8001613522772341315}
   m_Layer: 0
   m_Name: land (6)
   m_TagString: NoBlink
@@ -586,27 +563,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8001613522772341315
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143161857473685959}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.02678, z: 9}
-  m_Center: {x: 0, y: 1.0133892, z: 0.00000023841858}
 --- !u!1 &1363588978571089142
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +574,6 @@ GameObject:
   - component: {fileID: 8010113170981073585}
   - component: {fileID: 2745994325817942747}
   - component: {fileID: 8866902527300837812}
-  - component: {fileID: 6844802577956087187}
   m_Layer: 0
   m_Name: land (5)
   m_TagString: NoBlink
@@ -691,27 +646,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6844802577956087187
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363588978571089142}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.02678, z: 9}
-  m_Center: {x: 0, y: 1.0133892, z: 0.00000023841858}
 --- !u!1 &2254221170302385411
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +657,6 @@ GameObject:
   - component: {fileID: 1786635221438573901}
   - component: {fileID: 5678631144802062799}
   - component: {fileID: 5140638250700184738}
-  - component: {fileID: 708946571811990586}
   m_Layer: 0
   m_Name: paved road straight (3)
   m_TagString: NoBlink
@@ -796,27 +729,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &708946571811990586
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2254221170302385411}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0, y: 1.1352843, z: 0}
 --- !u!1 &2567274643005988176
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,7 +740,6 @@ GameObject:
   - component: {fileID: 8845757393580744969}
   - component: {fileID: 2916704876859107363}
   - component: {fileID: 4212785999719849701}
-  - component: {fileID: 2140541310094872159}
   m_Layer: 0
   m_Name: land
   m_TagString: NoBlink
@@ -901,27 +812,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2140541310094872159
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2567274643005988176}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.02678, z: 9}
-  m_Center: {x: 0, y: 1.0133892, z: 0.00000023841858}
 --- !u!1 &3338727899211847027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,7 +1023,6 @@ GameObject:
   - component: {fileID: 7190290248961512836}
   - component: {fileID: 4277607321078745498}
   - component: {fileID: 8554542217826291701}
-  - component: {fileID: 7960527828485157678}
   m_Layer: 0
   m_Name: paved road pedestrian crossing
   m_TagString: NoBlink
@@ -1206,27 +1095,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7960527828485157678
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4388721356089862714}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0.00000023841858, y: 1.1352843, z: 0}
 --- !u!1 &5318710528247808291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,7 +1106,6 @@ GameObject:
   - component: {fileID: 567583236164654055}
   - component: {fileID: 229404227908667121}
   - component: {fileID: 1059381282052212531}
-  - component: {fileID: 4409250953211222200}
   m_Layer: 0
   m_Name: land (4)
   m_TagString: NoBlink
@@ -1311,27 +1178,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4409250953211222200
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5318710528247808291}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.02678, z: 9}
-  m_Center: {x: 0, y: 1.0133892, z: 0.00000023841858}
 --- !u!1 &5398924524454908243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,7 +1189,6 @@ GameObject:
   - component: {fileID: 6896963740644879217}
   - component: {fileID: 5839382390357190947}
   - component: {fileID: 1497605735944853808}
-  - component: {fileID: 7835070507592196056}
   m_Layer: 0
   m_Name: paved road straight (1)
   m_TagString: NoBlink
@@ -1416,27 +1261,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7835070507592196056
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5398924524454908243}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0, y: 1.1352843, z: 0}
 --- !u!1 &6098901669509335926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,7 +1272,6 @@ GameObject:
   - component: {fileID: 86595479235547100}
   - component: {fileID: 7179144541725108565}
   - component: {fileID: 1489306969606466090}
-  - component: {fileID: 4336437896475375259}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (2)
   m_TagString: NoBlink
@@ -1521,27 +1344,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4336437896475375259
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6098901669509335926}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0.00000023841858, y: 1.1352843, z: 0}
 --- !u!1 &6139985316441314795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,7 +1355,6 @@ GameObject:
   - component: {fileID: 901220193382939096}
   - component: {fileID: 5463727191540841586}
   - component: {fileID: 4853680333107100742}
-  - component: {fileID: 6868595616568974438}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (8)
   m_TagString: NoBlink
@@ -1626,27 +1427,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6868595616568974438
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6139985316441314795}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0.00000023841858, y: 1.1352843, z: 0}
 --- !u!1 &6189962265768625596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1538,6 @@ GameObject:
   - component: {fileID: 4580598560376634867}
   - component: {fileID: 934734567427014345}
   - component: {fileID: 5265120250007179148}
-  - component: {fileID: 8329171436170617927}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (7)
   m_TagString: NoBlink
@@ -1831,27 +1610,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8329171436170617927
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6867512459483749022}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0.00000023841858, y: 1.1352843, z: 0}
 --- !u!1 &6883297381375100193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1621,6 @@ GameObject:
   - component: {fileID: 8659979115351698012}
   - component: {fileID: 1742870117279445322}
   - component: {fileID: 4420392998280359423}
-  - component: {fileID: 1805512356152351334}
   m_Layer: 0
   m_Name: paved road straight (4)
   m_TagString: NoBlink
@@ -1936,27 +1693,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1805512356152351334
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6883297381375100193}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0, y: 1.1352843, z: 0}
 --- !u!1 &7239585891884231841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,7 +1704,6 @@ GameObject:
   - component: {fileID: 5028540357615765001}
   - component: {fileID: 4598853045956824645}
   - component: {fileID: 4649648497248800699}
-  - component: {fileID: 5497956605952544077}
   m_Layer: 0
   m_Name: land (7)
   m_TagString: NoBlink
@@ -2041,27 +1776,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5497956605952544077
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7239585891884231841}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.02678, z: 9}
-  m_Center: {x: 0, y: 1.0133892, z: 0.00000023841858}
 --- !u!1 &7615992232899734449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,7 +1787,6 @@ GameObject:
   - component: {fileID: 255756271830766309}
   - component: {fileID: 133687253850739376}
   - component: {fileID: 4226833557000654131}
-  - component: {fileID: 7434287286684838497}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (6)
   m_TagString: NoBlink
@@ -2146,27 +1859,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7434287286684838497
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7615992232899734449}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0.00000023841858, y: 1.1352843, z: 0}
 --- !u!1 &7861550839082840749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,7 +1970,6 @@ GameObject:
   - component: {fileID: 3104797819877350475}
   - component: {fileID: 4905768930729739384}
   - component: {fileID: 6551829530082740524}
-  - component: {fileID: 8925952874042603871}
   m_Layer: 0
   m_Name: paved road pedestrian crossing (1)
   m_TagString: NoBlink
@@ -2351,27 +2042,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8925952874042603871
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7966700115008339836}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0.00000023841858, y: 1.1352843, z: 0}
 --- !u!1 &8299986464169851968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,7 +2053,6 @@ GameObject:
   - component: {fileID: 9025193295289726834}
   - component: {fileID: 148932504470251436}
   - component: {fileID: 7071534130368928066}
-  - component: {fileID: 4305909274686714232}
   m_Layer: 0
   m_Name: land (1)
   m_TagString: NoBlink
@@ -2456,27 +2125,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4305909274686714232
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8299986464169851968}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.02678, z: 9}
-  m_Center: {x: 0, y: 1.0133892, z: 0.00000023841858}
 --- !u!1 &8739080985743943544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,7 +2136,6 @@ GameObject:
   - component: {fileID: 1478768139622094867}
   - component: {fileID: 93583835909146102}
   - component: {fileID: 8734500399502538083}
-  - component: {fileID: 6928175882376122437}
   m_Layer: 0
   m_Name: paved road straight
   m_TagString: NoBlink
@@ -2561,27 +2208,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6928175882376122437
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8739080985743943544}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0, y: 1.1352843, z: 0}
 --- !u!1 &8974572698851961898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,7 +2219,6 @@ GameObject:
   - component: {fileID: 1704284178590016726}
   - component: {fileID: 6453531533600176027}
   - component: {fileID: 7938023911945274423}
-  - component: {fileID: 7440398099314294842}
   m_Layer: 0
   m_Name: paved road straight (5)
   m_TagString: NoBlink
@@ -2666,27 +2291,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7440398099314294842
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8974572698851961898}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.2705686, z: 9}
-  m_Center: {x: 0, y: 1.1352843, z: 0}
 --- !u!1 &9213471166164768635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2698,7 +2302,6 @@ GameObject:
   - component: {fileID: 6142061965267806041}
   - component: {fileID: 2730745501187535000}
   - component: {fileID: 13440964615842895}
-  - component: {fileID: 8702430002967167434}
   m_Layer: 0
   m_Name: land (3)
   m_TagString: NoBlink
@@ -2771,24 +2374,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8702430002967167434
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9213471166164768635}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 2.02678, z: 9}
-  m_Center: {x: 0, y: 1.0133892, z: 0.00000023841858}
