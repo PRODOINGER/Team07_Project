@@ -314,9 +314,12 @@ MonoBehaviour:
   - {fileID: 912238642974276475, guid: d95bbbba8e0437e448be965f79e73caf, type: 3}
   initialMapCount: 10
   mapLength: 34
-  obstaclePrefab: {fileID: 7904013763936966947, guid: 344e79d2c7c1003488e79d5a3d031ca4, type: 3}
+  obstaclePrefab:
+  - {fileID: 7904013763936966947, guid: 344e79d2c7c1003488e79d5a3d031ca4, type: 3}
+  - {fileID: 677248166516791535, guid: dd073715e15d01840a2b5f91666e7c77, type: 3}
   minZDistance: 1
   maxZDistance: 2
+  obstacleNumber: 1
 --- !u!4 &240350748
 Transform:
   m_ObjectHideFlags: 0
