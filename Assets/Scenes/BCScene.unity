@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1282474555062272101, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       propertyPath: m_moveSpeed
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1282474555062272101, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       propertyPath: m_sideJumpForce
