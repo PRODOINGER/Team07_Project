@@ -2326,14 +2326,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curScoreTxt: {fileID: 1458957409}
   curScore: 0
---- !u!81 &2020037818
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748155931}
-  m_Enabled: 1
 --- !u!1 &2038299612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,9 +2492,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 343638522572748073, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2020037812}
-    - targetCorrespondingSourceObject: {fileID: 343638522572748073, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2020037818}
   m_SourcePrefab: {fileID: 100100000, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
 --- !u!1 &2127611878
 GameObject:
