@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Supercyan.FreeSample
 {
     public class CharacterControl : MonoBehaviour
     {
+        // 싱글톤 인스턴스 선언
+        public static CharacterControl Instance { get; private set; }
+
         [SerializeField] private float blinkDuration = 1f; // 깜빡임 효과의 총 지속 시간
         [SerializeField] private float blinkInterval = 0.1f; // 깜빡이는 간격
         [SerializeField] private string exceptionTag = "NoBlink"; // 깜빡임 예외 처리를 위한 태그
@@ -25,34 +29,62 @@ namespace Supercyan.FreeSample
         private float m_minJumpInterval = 0.25f; // 최소 점프 간격
         private bool m_jumpInput = false; // 점프 입력을 받았는지 확인
         private bool m_isGrounded; // 캐릭터가 바닥에 닿아 있는지 여부 확인
-
         private bool isRolling = false; // 현재 구르는 중인지 확인
 
         private List<Collider> m_collisions = new List<Collider>(); // 충돌 중인 콜라이더를 추적하는 리스트
-
         private int currentLane = 1; // 현재 트랙 위치 (0: 왼쪽, 1: 중앙, 2: 오른쪽)
         private float laneDistance = 8f; // 트랙 간의 거리
 
-        public AudioClip JumpClip;
-        public AudioClip RollClip;
-        public AudioClip MoveClip;
+        public AudioClip JumpClip; // 점프 사운드
+        public AudioClip RollClip; // 구르기 사운드
+        public AudioClip MoveClip; // 이동 사운드
 
-        private int collisionCount = 0;// 장애물과의 충돌 횟수
-        private const int maxCollisions = 3; // 최대 충돌 횟수
-        public GameManager gameManager; // GameManager 참조
+        private Vector3 initialPosition; // 초기 위치 저장 변수
 
         private void Awake()
         {
-            // 필요한 컴포넌트를 초기화하고 확인
+            // 싱글톤 패턴 적용: 인스턴스가 없다면 현재 인스턴스를 사용하고 중복된 경우 파괴
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject); // 씬 전환 후에도 오브젝트 유지
+            }
+            else
+            {
+                Destroy(gameObject); // 이미 인스턴스가 존재할 경우 중복 제거
+                return;
+            }
+
+            // 필요한 컴포넌트 초기화
             if (!m_animator) { m_animator = gameObject.GetComponent<Animator>(); }
             if (!m_rigidBody) { m_rigidBody = gameObject.GetComponent<Rigidbody>(); }
             if (!m_collider) { m_collider = gameObject.GetComponent<CapsuleCollider>(); }
             renderers = GetComponentsInChildren<Renderer>(); // 자식 포함 모든 Renderer 컴포넌트 가져오기
+
+            initialPosition = transform.position; // 초기 위치 저장
         }
+
+        private void OnEnable()
+        {
+            // 씬이 로드될 때 초기 위치로 이동
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+        {
+            transform.position = initialPosition;
+            m_rigidBody.velocity = Vector3.zero; // 이동 중이던 속도 초기화
+        }
+
 
         private void Start()
         {
-            // 게임 시작 시 캐릭터를 이동 상태로 설정
+            // 게임 시작 시 캐릭터 이동 상태 설정
             if (m_rigidBody != null)
             {
                 m_rigidBody.velocity = new Vector3(0, 0, m_moveSpeed);
@@ -65,7 +97,7 @@ namespace Supercyan.FreeSample
             if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling)
             {
                 m_animator.SetTrigger("RollTrigger");
-                SoundManager.instance.SFXPlay("Roll", RollClip);  //구르기가 정상적으로 시작되면 자동으로 구르기 효과음 출력
+                SoundManager.instance.SFXPlay("Roll", RollClip); // 구르기 사운드 재생
                 StartCoroutine(RollCoroutine());
             }
 
@@ -73,7 +105,7 @@ namespace Supercyan.FreeSample
             if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
             {
                 m_jumpInput = true;
-                SoundManager.instance.SFXPlay("Jump",JumpClip); //점프키 입력되면 자동으로 점프 효과음 출력
+                SoundManager.instance.SFXPlay("Jump", JumpClip); // 점프 사운드 재생
             }
 
             // 좌우 이동 입력 처리
@@ -81,14 +113,14 @@ namespace Supercyan.FreeSample
             {
                 if (Input.GetKeyDown(KeyCode.A) && currentLane > 0)
                 {
-                    currentLane--;
-                    SoundManager.instance.SFXPlay("Move", MoveClip); //이동키 입력되면 자동으로 이동 효과음 출력
+                    currentLane--; // 현재 레인을 왼쪽으로 이동
+                    SoundManager.instance.SFXPlay("Move", MoveClip); // 이동 사운드 재생
                     MoveToLane(-1); // 왼쪽으로 이동
                 }
                 else if (Input.GetKeyDown(KeyCode.D) && currentLane < 2)
                 {
-                    currentLane++;
-                    SoundManager.instance.SFXPlay("Move", MoveClip); //이동키 입력되면 자동으로 이동 효과음 출력
+                    currentLane++; // 현재 레인을 오른쪽으로 이동
+                    SoundManager.instance.SFXPlay("Move", MoveClip); // 이동 사운드 재생
                     MoveToLane(1); // 오른쪽으로 이동
                 }
             }
@@ -98,8 +130,6 @@ namespace Supercyan.FreeSample
         {
             // 방향에 따라 점프력을 주어 캐릭터를 이동
             m_rigidBody.AddForce(new Vector3(direction * m_sideJumpForce, m_jumpForce, 0), ForceMode.Impulse);
-
-            // 목표 위치 설정 후 부드럽게 이동 시작
             StartCoroutine(SmoothMoveToLane(direction));
         }
 
@@ -112,10 +142,7 @@ namespace Supercyan.FreeSample
             {
                 // 매 프레임마다 Z축 위치를 업데이트하여 움직임을 부드럽게 함
                 targetPosition.z = transform.position.z;
-
-                // 캐릭터를 targetPosition으로 이동
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, m_moveSpeed * Time.deltaTime);
-
                 yield return null;
             }
 
@@ -131,7 +158,7 @@ namespace Supercyan.FreeSample
             float originalHeight = m_collider.height;
             m_collider.height = originalHeight / 3;
 
-            // 구르기 애니메이션 길이 동안 대기 (0.5초 동안 구르기)
+            // 구르기 애니메이션 길이 동안 대기
             yield return new WaitForSeconds(0.5f);
 
             // 구르기 종료 후 CapsuleCollider 높이를 원래대로 복구
@@ -190,7 +217,7 @@ namespace Supercyan.FreeSample
                     }
                     m_isGrounded = true;
                 }
-                
+
                 // 충돌한 오브젝트가 예외 태그를 가졌다면 깜빡임 생략
                 if (collision.gameObject.CompareTag(exceptionTag))
                 {
@@ -202,13 +229,6 @@ namespace Supercyan.FreeSample
                 {
                     StartCoroutine(BlinkEffect());
                 }
-
-                if (collision.gameObject.CompareTag("Box"))
-                {
-                    // GameManager에 충돌 횟수 업데이트 요청
-                    gameManager.UpdateCollisionCount(); // GameManager를 통해 충돌 횟수 증가
-                }
-
             }
         }
 
@@ -221,7 +241,8 @@ namespace Supercyan.FreeSample
             {
                 if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f)
                 {
-                    validSurfaceNormal = true; break;
+                    validSurfaceNormal = true;
+                    break;
                 }
             }
 
@@ -239,7 +260,10 @@ namespace Supercyan.FreeSample
                 {
                     m_collisions.Remove(collision.collider);
                 }
-                if (m_collisions.Count == 0) { m_isGrounded = false; }
+                if (m_collisions.Count == 0)
+                {
+                    m_isGrounded = false;
+                }
             }
         }
 
@@ -250,7 +274,10 @@ namespace Supercyan.FreeSample
             {
                 m_collisions.Remove(collision.collider);
             }
-            if (m_collisions.Count == 0) { m_isGrounded = false; }
+            if (m_collisions.Count == 0)
+            {
+                m_isGrounded = false;
+            }
         }
 
         private IEnumerator BlinkEffect()
