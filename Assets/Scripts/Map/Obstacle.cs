@@ -8,6 +8,11 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        obstacle.SetActive(false);
+        if (collision.gameObject.CompareTag("Player")) // 플레이어 태그가 붙은 오브젝트랑 충돌시 추가
+        {
+            //Debug.Log("충돌");
+            obstacle.SetActive(false);
+        }
+            
     }
 }
