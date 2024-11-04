@@ -15,6 +15,11 @@ public class Scene : MonoBehaviour
         SceneManager.LoadScene("Start");
     }
 
+    public void CharacherCustom()
+    {
+        SceneManager.LoadScene("CharacterCustom");
+    }
+
     public void QuitBttn()
     {
         Application.Quit();

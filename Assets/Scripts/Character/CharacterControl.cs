@@ -21,8 +21,8 @@ namespace Supercyan.FreeSample
         [SerializeField] private float m_jumpForce = 4; // 캐릭터 점프 힘
         [SerializeField] private float m_sideJumpForce = 9; // 좌우 이동 시 점프 힘
 
-        [SerializeField] private Animator m_animator = null; // 애니메이터 컴포넌트 참조
-        [SerializeField] private Rigidbody m_rigidBody = null; // Rigidbody 컴포넌트 참조
+        [SerializeField] public Animator m_animator = null; // 애니메이터 컴포넌트 참조
+        [SerializeField] public Rigidbody m_rigidBody = null; // Rigidbody 컴포넌트 참조
         [SerializeField] private CapsuleCollider m_collider = null; // 캐릭터의 CapsuleCollider 참조
 
         private float m_jumpTimeStamp = 0; // 점프 간격을 체크하는 시간 스탬프
