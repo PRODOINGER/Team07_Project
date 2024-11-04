@@ -11,7 +11,11 @@ public class GameManager : MonoBehaviour
     public Button startButton;
     public ScoreManager scoreManager;
 
-    void Start()
+    public UIManager uiManager;
+
+    private int collisionCount = 0; // 장애물과의 충돌 횟수
+    private const int maxCollisions = 3; // 최대 충돌 횟수
+    public void Start()
     {
         // 게임 시작 텍스트 숨기기
         CurScore.gameObject.SetActive(false);
@@ -25,7 +29,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void StartGame()
+    public void StartGame()
     {
         CurScore.gameObject.SetActive(true);
        CurScoreNum.gameObject.SetActive(true);
@@ -35,6 +39,30 @@ public class GameManager : MonoBehaviour
         {
             scoreManager.AddScore(0); // 초기화 용도로 0점 추가
         }
+        collisionCount = 0;
+    }
+    public void UpdateCollisionCount()
+    {
+        collisionCount++; // 충돌 횟수 증가
+        Debug.Log($"충돌 횟수: {collisionCount}");
+
+        // UI 업데이트
+        if (uiManager != null)
+        {
+            uiManager.UpdateLifeImages(collisionCount);
+        }
+
+        // 최대 충돌 횟수에 도달하면 게임 오버 트리거
+        if (collisionCount >= maxCollisions)
+        {
+            TriggerGameOver();
+        }
+    }
+
+    public void TriggerGameOver()
+    {
+        Debug.Log("Game Over!");
+        Time.timeScale = 0; // 게임 멈춤
     }
 
 }

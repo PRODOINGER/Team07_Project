@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
 
     public void BgmSoundVolume(float val)
     {
-        mixer.SetFloat("BgmSound", Mathf.Log10(val) * 20);
+        mixer.SetFloat("BgmSound", Mathf.Log10(val) * 20 - 20);
     }
 
     public void SfxSoundVolume(float val)

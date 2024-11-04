@@ -37,6 +37,10 @@ namespace Supercyan.FreeSample
         public AudioClip RollClip;
         public AudioClip MoveClip;
 
+        private int collisionCount = 0;// 장애물과의 충돌 횟수
+        private const int maxCollisions = 3; // 최대 충돌 횟수
+        public GameManager gameManager; // GameManager 참조
+
         private void Awake()
         {
             // 필요한 컴포넌트를 초기화하고 확인
@@ -61,6 +65,7 @@ namespace Supercyan.FreeSample
             if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling)
             {
                 m_animator.SetTrigger("RollTrigger");
+                SoundManager.instance.SFXPlay("Roll", RollClip);  //구르기가 정상적으로 시작되면 자동으로 구르기 효과음 출력
                 StartCoroutine(RollCoroutine());
             }
 
@@ -121,8 +126,6 @@ namespace Supercyan.FreeSample
         private IEnumerator RollCoroutine()
         {
             isRolling = true;
-            SoundManager.instance.SFXPlay("Roll", RollClip); //구르기가 정상적으로 시작되면 자동으로 구르기 효과음 출력
-
 
             // 기존 CapsuleCollider의 높이를 1/3로 줄임
             float originalHeight = m_collider.height;
@@ -199,6 +202,13 @@ namespace Supercyan.FreeSample
                 {
                     StartCoroutine(BlinkEffect());
                 }
+
+                if (collision.gameObject.CompareTag("Box"))
+                {
+                    // GameManager에 충돌 횟수 업데이트 요청
+                    gameManager.UpdateCollisionCount(); // GameManager를 통해 충돌 횟수 증가
+                }
+
             }
         }
 
