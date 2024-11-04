@@ -37,6 +37,10 @@ namespace Supercyan.FreeSample
         public AudioClip RollClip;
         public AudioClip MoveClip;
 
+        private int collisionCount = 0;// 장애물과의 충돌 횟수
+        private const int maxCollisions = 3; // 최대 충돌 횟수
+        public GameManager gameManager; // GameManager 참조
+
         private void Awake()
         {
             // 필요한 컴포넌트를 초기화하고 확인
@@ -198,6 +202,13 @@ namespace Supercyan.FreeSample
                 {
                     StartCoroutine(BlinkEffect());
                 }
+
+                if (collision.gameObject.CompareTag("Box"))
+                {
+                    // GameManager에 충돌 횟수 업데이트 요청
+                    gameManager.UpdateCollisionCount(); // GameManager를 통해 충돌 횟수 증가
+                }
+
             }
         }
 
