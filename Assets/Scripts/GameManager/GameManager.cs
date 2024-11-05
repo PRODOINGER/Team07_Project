@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     public UIManager uiManager;
 
-    private int collisionCount = 0; // 장애물과의 충돌 횟수
+    public int collisionCount = 0; // 장애물과의 충돌 횟수
     private const int maxCollisions = 3; // 최대 충돌 횟수
 
     public GameObject Life;

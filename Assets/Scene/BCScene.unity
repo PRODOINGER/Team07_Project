@@ -367,7 +367,6 @@ MonoBehaviour:
   - {fileID: 1585678176284343554, guid: 5fd1c83f11b98ce4aa882ea199a2b13a, type: 3}
   minZDistance: 1
   maxZDistance: 2
-  obstacleNumber: 1
   itemPrefabs:
   - {fileID: 5953025537571092573, guid: 11356bd2514f7e942a2f477383eeee8a, type: 3}
   itemSpawnProbability: 0.3
@@ -2906,6 +2905,7 @@ MonoBehaviour:
   startButton: {fileID: 0}
   scoreManager: {fileID: 657870822}
   uiManager: {fileID: 1547527403}
+  collisionCount: 0
   Life: {fileID: 0}
   EndPanel: {fileID: 0}
 --- !u!4 &2091615222
