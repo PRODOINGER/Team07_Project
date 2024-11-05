@@ -25,9 +25,9 @@ public class SpeedUpItem : MonoBehaviour
         CharacterControl characterControl = player.GetComponent<CharacterControl>(); 
         if (characterControl != null)
         {
-            characterControl.m_moveSpeed *= speedBoostAmount; 
+            characterControl.m_moveSpeed += speedBoostAmount; 
             yield return new WaitForSeconds(boostDuration); 
-            characterControl.m_moveSpeed /= speedBoostAmount; 
+            characterControl.m_moveSpeed -= speedBoostAmount; 
         }
         isBoostActive = false; 
     }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2788668353044649198}
   - component: {fileID: 6973176896697226196}
   - component: {fileID: 1670468636253321904}
-  - component: {fileID: 422220109641871983}
   m_Layer: 0
   m_Name: ScoreCube
   m_TagString: Untagged
@@ -104,18 +103,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 20, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &422220109641871983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447173222943481975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09c5274a863bc448a07f9fbd4590f13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
