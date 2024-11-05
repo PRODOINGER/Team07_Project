@@ -6,7 +6,6 @@ namespace Supercyan.FreeSample
     public class AccessoryWearLogic : MonoBehaviour
     {
         [SerializeField] private SkinnedMeshRenderer m_characterRenderer;
-        [SerializeField] private AccessoryLogic[] m_accessoriesToAttach;
 
         private List<AccessoryLogic> equippedAccessories = new List<AccessoryLogic>(); // 장착된 액세서리 리스트
 
@@ -37,14 +36,6 @@ namespace Supercyan.FreeSample
         private void Awake()
         {
             Initialize(gameObject);
-
-            if (m_accessoriesToAttach != null)
-            {
-                foreach (AccessoryLogic accessory in m_accessoriesToAttach)
-                {
-                    Attach(accessory);
-                }
-            }
         }
 
         public void Attach(AccessoryLogic accessory)
@@ -61,6 +52,8 @@ namespace Supercyan.FreeSample
 
             accessory.Renderer.bones = newBones;
             accessory.Renderer.rootBone = m_characterRenderer.rootBone;
+            accessory.Renderer.enabled = true;
+
             equippedAccessories.Add(accessory);
         }
 
@@ -69,7 +62,7 @@ namespace Supercyan.FreeSample
             if (equippedAccessories.Contains(accessory))
             {
                 equippedAccessories.Remove(accessory);
-                accessory.Renderer.enabled = false; // 장신구 비활성화
+                Destroy(accessory.gameObject); // 인스턴스를 제거하여 메모리에서 삭제
             }
         }
 

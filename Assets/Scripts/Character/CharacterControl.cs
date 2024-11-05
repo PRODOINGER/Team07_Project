@@ -41,6 +41,8 @@ namespace Supercyan.FreeSample
 
         private Vector3 initialPosition; // 초기 위치 저장 변수
 
+
+
         private void Awake()
         {
             // 싱글톤 패턴 적용: 인스턴스가 없다면 현재 인스턴스를 사용하고 중복된 경우 파괴
@@ -302,5 +304,7 @@ namespace Supercyan.FreeSample
             }
             isBlinking = false; // 깜빡임 종료
         }
+
+      
     }
 }
