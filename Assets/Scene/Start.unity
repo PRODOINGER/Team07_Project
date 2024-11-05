@@ -8281,7 +8281,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 244338066}
         m_TargetAssemblyTypeName: Scene, Assembly-CSharp
-        m_MethodName: GameStart
+        m_MethodName: CharacherCustom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
