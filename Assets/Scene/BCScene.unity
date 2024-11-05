@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 85cf0b004bc4a654b9e501efcce47902, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 343fa1d4ac5abdb40b1005eacd338e3c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -493,8 +493,9 @@ GameObject:
   m_Component:
   - component: {fileID: 240350748}
   - component: {fileID: 240350747}
+  - component: {fileID: 240350749}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MapManager
   m_TagString: NoBlink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,7 +523,7 @@ MonoBehaviour:
   - {fileID: 677248166516791535, guid: dd073715e15d01840a2b5f91666e7c77, type: 3}
   minZDistance: 1
   maxZDistance: 2
-  obstacleNumber: 1
+  obstacleNumber: 2
 --- !u!4 &240350748
 Transform:
   m_ObjectHideFlags: 0
@@ -538,6 +539,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &240350749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240350746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6ed87aede0d06488a82d493728d3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionalLight: {fileID: 705507994}
+  dayDuration: 60
+  fogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  maxFogDensity: 0.1
+  fogTransitionSpeed: 0.05
 --- !u!1 &295742958
 GameObject:
   m_ObjectHideFlags: 0
