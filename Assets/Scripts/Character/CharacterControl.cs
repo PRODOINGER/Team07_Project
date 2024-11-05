@@ -21,8 +21,8 @@ namespace Supercyan.FreeSample
         [SerializeField] private float m_jumpForce = 4; // 캐릭터 점프 힘
         [SerializeField] private float m_sideJumpForce = 9; // 좌우 이동 시 점프 힘
 
-        [SerializeField] public Animator m_animator = null; // 애니메이터 컴포넌트 참조
-        [SerializeField] public Rigidbody m_rigidBody = null; // Rigidbody 컴포넌트 참조
+        [SerializeField] private Animator m_animator = null; // 애니메이터 컴포넌트 참조
+        [SerializeField] private Rigidbody m_rigidBody = null; // Rigidbody 컴포넌트 참조
         [SerializeField] private CapsuleCollider m_collider = null; // 캐릭터의 CapsuleCollider 참조
 
         private float m_jumpTimeStamp = 0; // 점프 간격을 체크하는 시간 스탬프
@@ -41,7 +41,9 @@ namespace Supercyan.FreeSample
 
         private Vector3 initialPosition; // 초기 위치 저장 변수
 
-
+        private int collisionCount = 0;// 장애물과의 충돌 횟수
+        private const int maxCollisions = 3; // 최대 충돌 횟수
+        public GameManager gameManager; // GameManager 참조
 
         private void Awake()
         {
@@ -198,7 +200,7 @@ namespace Supercyan.FreeSample
                 m_isGrounded = false;
                 m_jumpInput = false;
             }
-
+            
             if (m_animator)
             {
                 m_animator.SetBool("Grounded", m_isGrounded);
@@ -230,6 +232,12 @@ namespace Supercyan.FreeSample
                 if (!isBlinking)
                 {
                     StartCoroutine(BlinkEffect());
+                }
+
+                if (collision.gameObject.CompareTag("Box"))
+                {
+                    // GameManager에 충돌 횟수 업데이트 요청
+                    gameManager.UpdateCollisionCount(); // GameManager를 통해 충돌 횟수 증가
                 }
             }
         }
@@ -304,7 +312,5 @@ namespace Supercyan.FreeSample
             }
             isBlinking = false; // 깜빡임 종료
         }
-
-      
     }
 }
