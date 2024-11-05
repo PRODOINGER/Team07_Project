@@ -7,7 +7,6 @@ TagManager:
   - Trigger
   - NoBlink
   - Box
-  - Score
   layers:
   - Default
   - TransparentFX

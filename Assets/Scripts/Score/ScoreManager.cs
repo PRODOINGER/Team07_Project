@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬 전환 후에도 오브젝트 유지 // 부모객체가 있으면 안됨
+            DontDestroyOnLoad(gameObject); // 씬 전환 후에도 오브젝트 유지
         }
         else
         {
@@ -60,12 +60,12 @@ public class ScoreManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.CompareTag("Score"))
+        // 플레이어와 충돌했는지 확인
+        if (other.CompareTag("Player"))
         {
-            AddScore(1);           
+            AddScore(1);           // 점수 추가
             Debug.Log("점수를 얻었습니다!");
-            Destroy(other.gameObject); 
+            Destroy(other.gameObject); // 점수를 얻으면 충돌한 오브젝트 삭제
         }
     }
 

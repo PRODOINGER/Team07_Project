@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
    
-    public GameObject[] lives;
+    public GameObject[] lives;    //  이미지 배열
     public static UIManager Instance { get; private set; }
 
     private void Awake()
@@ -26,9 +26,9 @@ public class UIManager : MonoBehaviour
     // 충돌에 따라 이미지 업데이트
     public void UpdateLifeImages(int collisionCount)
     {
-        if (collisionCount > 0 && collisionCount <= lives.Length)
+        if (collisionCount <= lives.Length)
         {
-            lives[collisionCount - 1].SetActive(false); // 해당 이미지 비활성화
+            lives[collisionCount - 1].SetActive(false); // 이미지 비활성화
         }
     }
 }
