@@ -1244,7 +1244,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 860, y: 430}
-  m_SizeDelta: {x: 30.2277, y: 37.9802}
+  m_SizeDelta: {x: 35, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &779602324
 MonoBehaviour:
@@ -1394,7 +1394,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 800, y: 430}
-  m_SizeDelta: {x: 30.2277, y: 37.9802}
+  m_SizeDelta: {x: 35, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &835431414
 MonoBehaviour:
@@ -2269,7 +2269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71e142acec0d7e4780fd5613c00bcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: []
+  lives:
+  - {fileID: 835431412}
+  - {fileID: 779602322}
+  - {fileID: 2008953292}
+  mineHeart1: {fileID: 21300002, guid: fed24bd82cefc0c4a8ef64dab6231b53, type: 3}
 --- !u!4 &1547527404
 Transform:
   m_ObjectHideFlags: 0
@@ -2753,7 +2757,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 920, y: 430}
-  m_SizeDelta: {x: 30.2277, y: 37.9802}
+  m_SizeDelta: {x: 35, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2008953294
 MonoBehaviour:

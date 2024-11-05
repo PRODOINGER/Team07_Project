@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
             return;
         }
     }
-    public void Start()
+
+    private void Start()
     {
         if (scoreManager != null)
         {
@@ -50,10 +51,11 @@ public class GameManager : MonoBehaviour
             Life.SetActive(true);
         }
 
-            if (EndPanel != null)
+        if (EndPanel != null)
         {
             EndPanel.SetActive(false);
         }
+
     }
 
     public void StartGame()
@@ -65,20 +67,33 @@ public class GameManager : MonoBehaviour
         if (scoreManager != null)
         {
             scoreManager.StartScoreUI();
-            
         }
-      
+
         collisionCount = 0;
     }
+
+    public void Update()
+    {
+        // Bc Scene에서 UIManager 찾기
+        if (uiManager == null)
+        {
+            uiManager = FindObjectOfType<UIManager>();
+            if (uiManager == null)
+            {
+                Debug.LogWarning("UIManager를 찾을 수 없습니다. Bc Scene에 UIManager가 있는지 확인하세요.");
+            }
+        }
+    }
+
     public void UpdateCollisionCount()
     {
         collisionCount++; // 충돌 횟수 증가
         Debug.Log($"충돌 횟수: {collisionCount}");
 
-        // UI 업데이트
+        // UIManager를 통해 생명 이미지 업데이트
         if (uiManager != null)
         {
-            uiManager.UpdateLifeImages(collisionCount);
+            uiManager.UpdateLifeImagesOnCollision(); // 생명 이미지 업데이트
         }
 
         // 최대 충돌 횟수에 도달하면 게임 오버 트리거
@@ -92,11 +107,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over!");
         Time.timeScale = 0; // 게임 멈춤
-      
+
         if (EndPanel != null)
         {
             EndPanel.SetActive(true);
         }
     }
-
 }
