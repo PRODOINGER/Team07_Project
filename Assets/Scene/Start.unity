@@ -3328,6 +3328,7 @@ MonoBehaviour:
   startButton: {fileID: 1381254219}
   scoreManager: {fileID: 424807711}
   uiManager: {fileID: 1097932713}
+  Life: {fileID: 0}
   EndPanel: {fileID: 1505696425}
 --- !u!1001 &115813219
 PrefabInstance:
@@ -20202,7 +20203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurScoreText: {fileID: 1981673517}
-  CurScoreNum: 0
+  CurScoreNum: {fileID: 0}
+  CurScoreNumValue: 0
 --- !u!4 &424807712
 Transform:
   m_ObjectHideFlags: 0
@@ -87560,7 +87562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurScoreText: {fileID: 1981673517}
-  CurScoreNum: 0
+  CurScoreNum: {fileID: 0}
+  CurScoreNumValue: 0
 --- !u!114 &1981673517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89892,7 +89895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurScoreText: {fileID: 2058392887}
-  CurScoreNum: 0
+  CurScoreNum: {fileID: 0}
+  CurScoreNumValue: 0
 --- !u!114 &2058392887
 MonoBehaviour:
   m_ObjectHideFlags: 0

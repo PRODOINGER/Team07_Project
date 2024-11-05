@@ -521,13 +521,14 @@ MonoBehaviour:
   obstaclePrefab:
   - {fileID: 7904013763936966947, guid: 344e79d2c7c1003488e79d5a3d031ca4, type: 3}
   - {fileID: 677248166516791535, guid: dd073715e15d01840a2b5f91666e7c77, type: 3}
+  - {fileID: 1585678176284343554, guid: 5fd1c83f11b98ce4aa882ea199a2b13a, type: 3}
   minZDistance: 1
   maxZDistance: 2
   obstacleNumber: 1
   itemPrefabs:
   - {fileID: 5953025537571092573, guid: 11356bd2514f7e942a2f477383eeee8a, type: 3}
   itemSpawnProbability: 0.3
-  scoreTrigger: {fileID: 0}
+  scoreTrigger: {fileID: 447173222943481975, guid: a2cfb4d1ef4dd624b8ebf01843f540f9, type: 3}
 --- !u!4 &240350748
 Transform:
   m_ObjectHideFlags: 0
