@@ -41,6 +41,10 @@ namespace Supercyan.FreeSample
 
         private Vector3 initialPosition; // 초기 위치 저장 변수
 
+        private int collisionCount = 0;// 장애물과의 충돌 횟수
+        private const int maxCollisions = 3; // 최대 충돌 횟수
+        public GameManager gameManager; // GameManager 참조
+
         private void Awake()
         {
             // 싱글톤 패턴 적용: 인스턴스가 없다면 현재 인스턴스를 사용하고 중복된 경우 파괴
@@ -196,7 +200,7 @@ namespace Supercyan.FreeSample
                 m_isGrounded = false;
                 m_jumpInput = false;
             }
-
+            
             if (m_animator)
             {
                 m_animator.SetBool("Grounded", m_isGrounded);
@@ -228,6 +232,12 @@ namespace Supercyan.FreeSample
                 if (!isBlinking)
                 {
                     StartCoroutine(BlinkEffect());
+                }
+
+                if (collision.gameObject.CompareTag("Box"))
+                {
+                    // GameManager에 충돌 횟수 업데이트 요청
+                    gameManager.UpdateCollisionCount(); // GameManager를 통해 충돌 횟수 증가
                 }
             }
         }

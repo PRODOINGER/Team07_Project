@@ -2,28 +2,99 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 
 public class ScoreManager : MonoBehaviour
 {
-    public Text curScoreTxt; // 현재 점수 표기
-    public int curScore = 0;
+    public TextMeshProUGUI CurScoreText;
+    public TextMeshProUGUI CurScoreNum; 
+    public int CurScoreNumValue = 0;
+    private int highScore = 0;
 
-    public virtual void UpdateScoreUI() // 필요시 Record 에서 추가수정
+    public static ScoreManager Instance { get; private set; }
+
+    private void Awake()
     {
-        curScoreTxt.text = curScore.ToString(); // 현재점수 text 
+        // 싱글톤 패턴 적용: 인스턴스가 없다면 현재 인스턴스를 사용하고 중복된 경우 파괴
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 씬 전환 후에도 오브젝트 유지
+        }
+        else
+        {
+            Destroy(gameObject); // 이미 인스턴스가 존재할 경우 중복 제거
+            return;
+        }
+    }
+    private void Start()
+    {
+        StartScoreUI();
     }
 
-    protected void Update()
+    // 점수 UI를 초기화하고 활성화하는 메서드
+    public void StartScoreUI()
     {
-        
+        if (CurScoreText != null)
+        {
+            CurScoreText.gameObject.SetActive(true);
+        }
+        if (CurScoreNum != null)
+        {
+            CurScoreNum.gameObject.SetActive(true);
+        }
+
+        // 점수 초기화 및 UI 업데이트
+        CurScoreNumValue = 0; // 초기화 용도로 0점 추가
+        UpdateScoreUI(); // 초기 점수 표시
     }
 
-    public void AddScore(int score) // Record에서 접근 가능
+    public virtual void UpdateScoreUI()
     {
-        curScore += score; //현재점수서 +1
-        UpdateScoreUI(); // 그리고 스코어UI를 업데이트
+        if (CurScoreNum != null)
+        {
+            CurScoreNum.text = CurScoreNumValue.ToString(); 
+        }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        // 플레이어와 충돌했는지 확인
+        if (other.CompareTag("Player"))
+        {
+            AddScore(1);           // 점수 추가
+            Debug.Log("점수를 얻었습니다!");
+            Destroy(other.gameObject); // 점수를 얻으면 충돌한 오브젝트 삭제
+        }
+    }
+
+    public void AddScore(int score)
+    {
+        CurScoreNumValue += score; // 현재 점수에 추가
+        UpdateScoreUI(); // 스코어 UI를 업데이트
+        CheckAndSetHighScore();
+    }
+   
+    private void CheckAndSetHighScore()
+    {
+        if (CurScoreNumValue > highScore) // 만약 현재 점수가 최고 점수보다 높다면
+        {
+            highScore = CurScoreNumValue; // 최고 점수를 현재 점수로 업데이트
+            SaveHighScore(); // 그리고 저장
+        }
+    }
+    private void SaveHighScore()
+    {
+        PlayerPrefs.SetInt("HighScore", highScore); // 최고 점수를 저장
+        PlayerPrefs.Save(); // PlayerPrefs 저장
+    }
+    private void LoadHighScore()
+    {
+        highScore = PlayerPrefs.GetInt("HighScore", 0); // 저장된 최고 점수 로드 (기본값 0)
+    }
+
+
+    
 }
 

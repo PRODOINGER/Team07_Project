@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Text CurScore;
-    public Text CurScoreNum;
+    public static GameManager instance;
+    public TextMeshProUGUI CurScoreText;
+    public TextMeshProUGUI CurScoreNum;
 
     public Button startButton;
     public ScoreManager scoreManager;
@@ -15,30 +17,57 @@ public class GameManager : MonoBehaviour
 
     private int collisionCount = 0; // 장애물과의 충돌 횟수
     private const int maxCollisions = 3; // 최대 충돌 횟수
+
+    public GameObject Life;
+    public GameObject EndPanel;
+
+    public static GameManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        // 싱글톤 패턴 적용: 인스턴스가 없다면 현재 인스턴스를 사용하고 중복된 경우 파괴
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 씬 전환 후에도 오브젝트 유지
+        }
+        else
+        {
+            Destroy(gameObject); // 이미 인스턴스가 존재할 경우 중복 제거
+            return;
+        }
+    }
     public void Start()
     {
-        // 게임 시작 텍스트 숨기기
-        CurScore.gameObject.SetActive(false);
-        CurScoreNum.gameObject.SetActive(false);
-
-
-        // ScoreManager가 존재하면 초기 점수 UI 업데이트
         if (scoreManager != null)
         {
-            scoreManager.UpdateScoreUI(); 
+            scoreManager.StartScoreUI(); // UI를 활성화하고 점수 초기화
+        }
+        collisionCount = 0;
+
+        if (Life != null)
+        {
+            Life.SetActive(true);
+        }
+
+            if (EndPanel != null)
+        {
+            EndPanel.SetActive(false);
         }
     }
 
     public void StartGame()
     {
-        CurScore.gameObject.SetActive(true);
-       CurScoreNum.gameObject.SetActive(true);
+        CurScoreText.gameObject.SetActive(true);
+        CurScoreNum.gameObject.SetActive(true);
 
         // 점수 초기화 및 UI 업데이트
         if (scoreManager != null)
         {
-            scoreManager.AddScore(0); // 초기화 용도로 0점 추가
+            scoreManager.StartScoreUI();
+            
         }
+      
         collisionCount = 0;
     }
     public void UpdateCollisionCount()
@@ -63,6 +92,11 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over!");
         Time.timeScale = 0; // 게임 멈춤
+      
+        if (EndPanel != null)
+        {
+            EndPanel.SetActive(true);
+        }
     }
 
 }
