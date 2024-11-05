@@ -234,11 +234,12 @@ namespace Supercyan.FreeSample
                     StartCoroutine(BlinkEffect());
                 }
 
-                if (collision.gameObject.CompareTag("Box"))
-                {
-                    // GameManager에 충돌 횟수 업데이트 요청
-                    gameManager.UpdateCollisionCount(); // GameManager를 통해 충돌 횟수 증가
-                }
+
+            }
+            if (collision.gameObject.CompareTag("Box"))
+            {
+                // GameManager에 충돌 횟수 업데이트 요청
+                gameManager.UpdateCollisionCount(); // GameManager를 통해 충돌 횟수 증가
             }
         }
 

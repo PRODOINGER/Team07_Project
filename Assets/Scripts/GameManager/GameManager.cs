@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public GameObject Life;
     public GameObject EndPanel;
 
+    public GameObject EndPanelPrefab; 
+    private GameObject endPanelInstance;
+
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -92,11 +95,15 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over!");
         Time.timeScale = 0; // 게임 멈춤
-      
-        if (EndPanel != null)
+
+        if (endPanelInstance == null) // 인스턴스가 없다면 생성
         {
-            EndPanel.SetActive(true);
+            endPanelInstance = Instantiate(EndPanelPrefab);
+            endPanelInstance.transform.SetParent(this.transform); // Canvas 또는 적절한 부모로 설정
+            endPanelInstance.transform.localPosition = Vector3.zero; // 위치 초기화 (필요 시 조정)
         }
+
+        endPanelInstance.SetActive(true);
     }
 
 }

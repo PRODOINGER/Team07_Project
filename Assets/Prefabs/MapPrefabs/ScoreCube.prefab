@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 422220109641871983}
   m_Layer: 0
   m_Name: ScoreCube
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 447173222943481975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09c5274a863bc448a07f9fbd4590f13, type: 3}
+  m_Script: {fileID: 11500000, guid: 6125309f7bd61cf439634200335edbda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
+  CurScoreText: {fileID: 0}
+  CurScoreNum: {fileID: 0}
+  CurScoreNumValue: 0
