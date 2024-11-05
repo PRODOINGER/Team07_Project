@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scene/Start.unity
     guid: 54d57a49b87a3f7468e686600a20aa5f
   - enabled: 1
+    path: Assets/Scene/CharacterCustom.unity
+    guid: 86f6646704b4634419ab3f71189fb4fe
+  - enabled: 1
     path: Assets/Scene/BCScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
