@@ -1,12 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Supercyan.FreeSample
 {
     public class CharacterCustomizationRoomManager : MonoBehaviour
     {
-        [SerializeField] private Button accessoryEquipOrUnequipButton; // 장신구 장착/해제 버튼
+        // 싱글톤 인스턴스 선언
+        public static CharacterCustomizationRoomManager Instance { get; private set; }
+
+        [SerializeField] private Button accessoryConfirmButton;        // 장신구 확정 착용 버튼
+        [SerializeField] private Button accessoryRemoveButton;         // 장신구 해제 버튼
         [SerializeField] private Button accessoryNextButton;           // 다음 장신구 선택 버튼
 
         private CharacterControl character;                            // Player 태그를 가진 캐릭터 참조
@@ -15,12 +20,29 @@ namespace Supercyan.FreeSample
         private List<GameObject> accessories;                          // 장신구 목록
         private int currentAccessoryIndex = 0;                         // 현재 선택된 장신구 인덱스
         private GameObject selectedAccessoryPrefab;                    // 현재 선택된 장신구 프리팹
-        private GameObject currentAccessoryInstanceHat;                // 현재 착용된 hat 장신구 인스턴스
-        private GameObject currentAccessoryInstanceBackpack;           // 현재 착용된 backpack 장신구 인스턴스
+
+        private GameObject previewAccessoryInstanceHat;                // 미리보기 hat 장신구 인스턴스
+        private GameObject previewAccessoryInstanceBackpack;           // 미리보기 backpack 장신구 인스턴스
+        private GameObject confirmedAccessoryInstanceHat;              // 확정 착용된 hat 장신구 인스턴스
+        private GameObject confirmedAccessoryInstanceBackpack;         // 확정 착용된 backpack 장신구 인스턴스
+
+        private void Awake()
+        {
+            // 싱글톤 인스턴스 설정
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject); // 인스턴스 중복 방지
+                return;
+            }
+        }
 
         private void Start()
         {
-            character = GameObject.FindGameObjectWithTag("Player")?.GetComponent<CharacterControl>();
+            character = CharacterControl.Instance;
             accessoryWearLogic = character?.GetComponent<AccessoryWearLogic>();
 
             if (accessoryWearLogic == null)
@@ -38,91 +60,169 @@ namespace Supercyan.FreeSample
                 Resources.Load<GameObject>("hat_white")
             };
 
-            accessoryEquipOrUnequipButton.onClick.AddListener(EquipOrUnequipAccessory);
+            accessoryConfirmButton.onClick.AddListener(ConfirmAccessory);
+            accessoryRemoveButton.onClick.AddListener(RemoveConfirmedAccessory);
             accessoryNextButton.onClick.AddListener(SelectNextAccessory);
 
             selectedAccessoryPrefab = accessories.Count > 0 ? accessories[0] : null;
-            UpdateAccessoryButtonState();
+            ShowAccessoryPreview();
         }
 
-        private void EquipOrUnequipAccessory()
+        // 미리보기 장신구를 삭제하고, 확정 장착된 장신구의 Renderer를 활성화하는 메서드
+        public void DeletePreviewAccessories()
         {
-            if (selectedAccessoryPrefab == null || accessoryWearLogic == null) return;
+            // 미리보기 장신구 삭제
+            if (previewAccessoryInstanceHat != null) Destroy(previewAccessoryInstanceHat);
+            if (previewAccessoryInstanceBackpack != null) Destroy(previewAccessoryInstanceBackpack);
 
-            bool isHat = selectedAccessoryPrefab.name.Contains("hat");
-            bool isBackpack = selectedAccessoryPrefab.name.Contains("backpack");
-
-            GameObject currentAccessoryInstance = isHat ? currentAccessoryInstanceHat : currentAccessoryInstanceBackpack;
-            AccessoryLogic accessoryLogic = currentAccessoryInstance?.GetComponent<AccessoryLogic>();
-
-            // 장착 상태 확인 후 해제
-            if (currentAccessoryInstance != null && accessoryWearLogic.IsEquipped(currentAccessoryInstance))
+            // 확정 장착된 장신구의 Renderer를 활성화
+            if (confirmedAccessoryInstanceHat != null)
             {
-                accessoryWearLogic.Detach(accessoryLogic); // 장신구 해제
-                Destroy(currentAccessoryInstance); // 인스턴스 삭제
+                confirmedAccessoryInstanceHat.GetComponent<AccessoryLogic>().Renderer.enabled = true;
+            }
+            if (confirmedAccessoryInstanceBackpack != null)
+            {
+                confirmedAccessoryInstanceBackpack.GetComponent<AccessoryLogic>().Renderer.enabled = true;
+            }
+        }
 
-                // 해당 장신구 유형 인스턴스 변수 비우기
-                if (isHat)
-                    currentAccessoryInstanceHat = null;
-                else if (isBackpack)
-                    currentAccessoryInstanceBackpack = null;
+        private void ConfirmAccessory()
+        {
+            bool isHat = selectedAccessoryPrefab.name.Contains("hat");
+
+            if (isHat)
+            {
+                if (previewAccessoryInstanceHat == null) return;
+
+                // 기존 확정 장착 해제
+                if (confirmedAccessoryInstanceHat != null)
+                {
+                    Destroy(confirmedAccessoryInstanceHat);
+                }
+
+                // 미리보기 장신구를 확정 착용으로 전환
+                confirmedAccessoryInstanceHat = previewAccessoryInstanceHat;
+                previewAccessoryInstanceHat = null;
+
+                AccessoryLogic accessoryLogic = confirmedAccessoryInstanceHat.GetComponent<AccessoryLogic>();
+                accessoryWearLogic.Attach(accessoryLogic);
+                confirmedAccessoryInstanceHat.transform.SetParent(character.transform, false);
             }
             else
             {
-                // 새 장신구 인스턴스를 생성하고 장착
-                currentAccessoryInstance = Instantiate(selectedAccessoryPrefab, character.transform);
-                accessoryLogic = currentAccessoryInstance.GetComponent<AccessoryLogic>();
+                if (previewAccessoryInstanceBackpack == null) return;
 
-                if (CanEquipAccessory(accessoryLogic))
+                // 기존 확정 장착 해제
+                if (confirmedAccessoryInstanceBackpack != null)
                 {
-                    accessoryWearLogic.Attach(accessoryLogic); // 장신구 착용
-
-                    // 착용한 장신구를 해당 변수에 저장
-                    if (isHat)
-                        currentAccessoryInstanceHat = currentAccessoryInstance;
-                    else if (isBackpack)
-                        currentAccessoryInstanceBackpack = currentAccessoryInstance;
+                    Destroy(confirmedAccessoryInstanceBackpack);
                 }
-            }
 
-            UpdateAccessoryButtonState();
+                // 미리보기 장신구를 확정 착용으로 전환
+                confirmedAccessoryInstanceBackpack = previewAccessoryInstanceBackpack;
+                previewAccessoryInstanceBackpack = null;
+
+                AccessoryLogic accessoryLogic = confirmedAccessoryInstanceBackpack.GetComponent<AccessoryLogic>();
+                accessoryWearLogic.Attach(accessoryLogic);
+                confirmedAccessoryInstanceBackpack.transform.SetParent(character.transform, false);
+            }
         }
 
-        // 장신구 착용 가능 여부 확인 (hat과 backpack을 독립적으로 착용 가능하게 함)
-        private bool CanEquipAccessory(AccessoryLogic accessory)
+        private void RemoveConfirmedAccessory()
         {
-            bool isHat = accessory.name.Contains("hat");
-            bool isBackpack = accessory.name.Contains("backpack");
+            bool isHat = selectedAccessoryPrefab.name.Contains("hat");
 
-            // 현재 선택한 장신구 유형에 따라 착용 상태 확인
-            if (isHat) return currentAccessoryInstanceHat == null;
-            if (isBackpack) return currentAccessoryInstanceBackpack == null;
-
-            return false;
+            if (isHat && confirmedAccessoryInstanceHat != null)
+            {
+                AccessoryLogic accessoryLogic = confirmedAccessoryInstanceHat.GetComponent<AccessoryLogic>();
+                accessoryWearLogic.Detach(accessoryLogic);
+                Destroy(confirmedAccessoryInstanceHat);
+                confirmedAccessoryInstanceHat = null;
+            }
+            else if (!isHat && confirmedAccessoryInstanceBackpack != null)
+            {
+                AccessoryLogic accessoryLogic = confirmedAccessoryInstanceBackpack.GetComponent<AccessoryLogic>();
+                accessoryWearLogic.Detach(accessoryLogic);
+                Destroy(confirmedAccessoryInstanceBackpack);
+                confirmedAccessoryInstanceBackpack = null;
+            }
         }
 
         private void SelectNextAccessory()
         {
+            bool isHat = selectedAccessoryPrefab.name.Contains("hat");
+
+            // 기존 미리보기 장신구 제거 (독립적으로 관리)
+            if (isHat && previewAccessoryInstanceHat != null)
+            {
+                Destroy(previewAccessoryInstanceHat);
+                previewAccessoryInstanceHat = null;
+            }
+            else if (!isHat && previewAccessoryInstanceBackpack != null)
+            {
+                Destroy(previewAccessoryInstanceBackpack);
+                previewAccessoryInstanceBackpack = null;
+            }
+
+            // 다음 장신구로 인덱스 이동 및 선택
             currentAccessoryIndex = (currentAccessoryIndex + 1) % accessories.Count;
             selectedAccessoryPrefab = accessories[currentAccessoryIndex];
-            UpdateAccessoryButtonState();
+
+            // 새로운 미리보기 장신구 표시 전 확정 장신구의 Renderer 상태 갱신
+            UpdateConfirmedAccessoryVisibility();
+            ShowAccessoryPreview();
         }
 
-        private void UpdateAccessoryButtonState()
+        private void ShowAccessoryPreview()
         {
-            if (accessoryWearLogic == null || selectedAccessoryPrefab == null) return;
+            if (selectedAccessoryPrefab == null || character == null) return;
 
-            bool isEquipped = false;
-            if (selectedAccessoryPrefab.name.Contains("hat"))
+            bool isHat = selectedAccessoryPrefab.name.Contains("hat");
+
+            // 기존 확정 장착 장신구가 있을 경우, 같은 유형일 때만 Renderer를 비활성화하여 미리보기 장신구가 보이도록 함
+            if (isHat && confirmedAccessoryInstanceHat != null)
             {
-                isEquipped = currentAccessoryInstanceHat != null && accessoryWearLogic.IsEquipped(currentAccessoryInstanceHat);
+                confirmedAccessoryInstanceHat.GetComponent<AccessoryLogic>().Renderer.enabled = false;
             }
-            else if (selectedAccessoryPrefab.name.Contains("backpack"))
+            else if (!isHat && confirmedAccessoryInstanceBackpack != null)
             {
-                isEquipped = currentAccessoryInstanceBackpack != null && accessoryWearLogic.IsEquipped(currentAccessoryInstanceBackpack);
+                confirmedAccessoryInstanceBackpack.GetComponent<AccessoryLogic>().Renderer.enabled = false;
             }
 
-            accessoryEquipOrUnequipButton.GetComponentInChildren<Text>().text = isEquipped ? "장신구 해제" : "장신구 착용";
+            // 미리보기 장신구 인스턴스를 캐릭터에 임시로 추가
+            GameObject previewInstance = Instantiate(selectedAccessoryPrefab);
+            previewInstance.transform.SetParent(character.transform, false);
+            AccessoryLogic accessoryLogic = previewInstance.GetComponent<AccessoryLogic>();
+
+            // 캐릭터 본과 장신구 본을 일치시켜 투명 문제 해결
+            accessoryWearLogic.Attach(accessoryLogic);
+            accessoryLogic.Renderer.enabled = true;
+
+            // 미리보기 인스턴스를 해당 유형에 맞게 설정
+            if (isHat)
+            {
+                previewAccessoryInstanceHat = previewInstance;
+            }
+            else
+            {
+                previewAccessoryInstanceBackpack = previewInstance;
+            }
+        }
+
+        // 미리보기 장신구의 유형에 따라 확정 장착된 장신구의 Renderer 상태를 업데이트
+        private void UpdateConfirmedAccessoryVisibility()
+        {
+            bool isHat = selectedAccessoryPrefab.name.Contains("hat");
+
+            // 미리보기 장신구가 backpack일 경우 확정 착용된 hat 장신구의 Renderer를 활성화
+            if (!isHat && confirmedAccessoryInstanceHat != null)
+            {
+                confirmedAccessoryInstanceHat.GetComponent<AccessoryLogic>().Renderer.enabled = true;
+            }
+            else if (isHat && confirmedAccessoryInstanceBackpack != null)
+            {
+                confirmedAccessoryInstanceBackpack.GetComponent<AccessoryLogic>().Renderer.enabled = true;
+            }
         }
     }
 }
