@@ -15,7 +15,8 @@ namespace Supercyan.FreeSample
         private List<GameObject> accessories;                          // 장신구 목록
         private int currentAccessoryIndex = 0;                         // 현재 선택된 장신구 인덱스
         private GameObject selectedAccessoryPrefab;                    // 현재 선택된 장신구 프리팹
-        private GameObject currentAccessoryInstance;                   // 현재 장착된 장신구 인스턴스
+        private GameObject currentAccessoryInstanceHat;                // 현재 착용된 hat 장신구 인스턴스
+        private GameObject currentAccessoryInstanceBackpack;           // 현재 착용된 backpack 장신구 인스턴스
 
         private void Start()
         {
@@ -48,39 +49,56 @@ namespace Supercyan.FreeSample
         {
             if (selectedAccessoryPrefab == null || accessoryWearLogic == null) return;
 
+            bool isHat = selectedAccessoryPrefab.name.Contains("hat");
+            bool isBackpack = selectedAccessoryPrefab.name.Contains("backpack");
+
+            GameObject currentAccessoryInstance = isHat ? currentAccessoryInstanceHat : currentAccessoryInstanceBackpack;
             AccessoryLogic accessoryLogic = currentAccessoryInstance?.GetComponent<AccessoryLogic>();
 
+            // 장착 상태 확인 후 해제
             if (currentAccessoryInstance != null && accessoryWearLogic.IsEquipped(currentAccessoryInstance))
             {
                 accessoryWearLogic.Detach(accessoryLogic); // 장신구 해제
                 Destroy(currentAccessoryInstance); // 인스턴스 삭제
-                currentAccessoryInstance = null;
+
+                // 해당 장신구 유형 인스턴스 변수 비우기
+                if (isHat)
+                    currentAccessoryInstanceHat = null;
+                else if (isBackpack)
+                    currentAccessoryInstanceBackpack = null;
             }
             else
             {
+                // 새 장신구 인스턴스를 생성하고 장착
                 currentAccessoryInstance = Instantiate(selectedAccessoryPrefab, character.transform);
                 accessoryLogic = currentAccessoryInstance.GetComponent<AccessoryLogic>();
 
                 if (CanEquipAccessory(accessoryLogic))
                 {
                     accessoryWearLogic.Attach(accessoryLogic); // 장신구 착용
+
+                    // 착용한 장신구를 해당 변수에 저장
+                    if (isHat)
+                        currentAccessoryInstanceHat = currentAccessoryInstance;
+                    else if (isBackpack)
+                        currentAccessoryInstanceBackpack = currentAccessoryInstance;
                 }
             }
 
             UpdateAccessoryButtonState();
         }
 
+        // 장신구 착용 가능 여부 확인 (hat과 backpack을 독립적으로 착용 가능하게 함)
         private bool CanEquipAccessory(AccessoryLogic accessory)
         {
-            bool hasHat = false;
+            bool isHat = accessory.name.Contains("hat");
+            bool isBackpack = accessory.name.Contains("backpack");
 
-            foreach (AccessoryLogic equipped in accessoryWearLogic.GetEquippedAccessories())
-            {
-                if (equipped.name.Contains("hat")) hasHat = true;
-                if (equipped.name.Contains("hat") && accessory.name.Contains("hat")) return false;
-            }
+            // 현재 선택한 장신구 유형에 따라 착용 상태 확인
+            if (isHat) return currentAccessoryInstanceHat == null;
+            if (isBackpack) return currentAccessoryInstanceBackpack == null;
 
-            return !hasHat || !accessory.name.Contains("hat");
+            return false;
         }
 
         private void SelectNextAccessory()
@@ -94,7 +112,15 @@ namespace Supercyan.FreeSample
         {
             if (accessoryWearLogic == null || selectedAccessoryPrefab == null) return;
 
-            bool isEquipped = currentAccessoryInstance != null && accessoryWearLogic.IsEquipped(currentAccessoryInstance);
+            bool isEquipped = false;
+            if (selectedAccessoryPrefab.name.Contains("hat"))
+            {
+                isEquipped = currentAccessoryInstanceHat != null && accessoryWearLogic.IsEquipped(currentAccessoryInstanceHat);
+            }
+            else if (selectedAccessoryPrefab.name.Contains("backpack"))
+            {
+                isEquipped = currentAccessoryInstanceBackpack != null && accessoryWearLogic.IsEquipped(currentAccessoryInstanceBackpack);
+            }
 
             accessoryEquipOrUnequipButton.GetComponentInChildren<Text>().text = isEquipped ? "장신구 해제" : "장신구 착용";
         }
