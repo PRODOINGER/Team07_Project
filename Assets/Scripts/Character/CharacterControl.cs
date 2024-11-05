@@ -41,7 +41,6 @@ namespace Supercyan.FreeSample
 
         private Vector3 initialPosition; // 초기 위치 저장 변수
 
-        private int collisionCount = 0;// 장애물과의 충돌 횟수
         private const int maxCollisions = 3; // 최대 충돌 횟수
         public GameManager gameManager; // GameManager 참조
 
