@@ -44630,7 +44630,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71e142acec0d7e4780fd5613c00bcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: []
+  lives:
+  - {fileID: 1533288350}
+  - {fileID: 598520646}
+  - {fileID: 843288223}
+  mineHeart1: {fileID: 21300002, guid: fed24bd82cefc0c4a8ef64dab6231b53, type: 3}
 --- !u!4 &1097932714
 Transform:
   m_ObjectHideFlags: 0
