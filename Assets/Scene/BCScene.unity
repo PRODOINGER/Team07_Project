@@ -523,7 +523,11 @@ MonoBehaviour:
   - {fileID: 677248166516791535, guid: dd073715e15d01840a2b5f91666e7c77, type: 3}
   minZDistance: 1
   maxZDistance: 2
-  obstacleNumber: 2
+  obstacleNumber: 1
+  itemPrefabs:
+  - {fileID: 5953025537571092573, guid: 11356bd2514f7e942a2f477383eeee8a, type: 3}
+  itemSpawnProbability: 0.3
+  scoreTrigger: {fileID: 0}
 --- !u!4 &240350748
 Transform:
   m_ObjectHideFlags: 0
