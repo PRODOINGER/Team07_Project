@@ -17,7 +17,7 @@ namespace Supercyan.FreeSample
         private Renderer[] renderers; // 캐릭터와 자식 오브젝트의 모든 Renderer 컴포넌트들
         private bool isBlinking = false; // 현재 깜빡이는 중인지 확인
 
-        [SerializeField] private float m_moveSpeed = 7; // 캐릭터 이동 속도
+        [SerializeField] public float m_moveSpeed = 7; // 캐릭터 이동 속도
         [SerializeField] private float m_jumpForce = 4; // 캐릭터 점프 힘
         [SerializeField] private float m_sideJumpForce = 9; // 좌우 이동 시 점프 힘
 
