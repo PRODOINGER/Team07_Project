@@ -4,15 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
-
 public class ScoreManager : MonoBehaviour
 {
+    public TextMeshProUGUI HighScoreNum;
     public TextMeshProUGUI CurScoreText;
-    public TextMeshProUGUI CurScoreNum; 
+    public TextMeshProUGUI CurScoreNum;
     public int CurScoreNumValue = 0;
     private int highScore = 0;
 
+    private void Start()
+    {
+        StartScoreUI();
+        LoadHighScore(); // 기존 최고 점수 불러오기
+
+        // 최고 점수 초기 표시
+        if (HighScoreNum != null)
+        {
+            HighScoreNum.text = highScore.ToString();
+        }
+
+        InvokeRepeating("AddScoreEverySecond", 1f, 1f);
+    }
 
     // 점수 UI를 초기화하고 활성화하는 메서드
     public void StartScoreUI()
@@ -27,26 +39,22 @@ public class ScoreManager : MonoBehaviour
         }
 
         // 점수 초기화 및 UI 업데이트
-        CurScoreNumValue = 0; // 초기화 용도로 0점 추가
-        UpdateScoreUI(); // 초기 점수 표시
+        CurScoreNumValue = 0;
+        UpdateScoreUI();
     }
 
     public virtual void UpdateScoreUI()
     {
         if (CurScoreNum != null)
         {
-            CurScoreNum.text = CurScoreNumValue.ToString(); 
+            CurScoreNum.text = CurScoreNumValue.ToString();
         }
     }
-    private void OnTriggerEnter(Collider other)
+
+    // 게임 시간에 따라 1점씩 추가하는 메서드
+    private void AddScoreEverySecond()
     {
-        // 플레이어와 충돌했는지 확인
-        if (other.CompareTag("Score"))
-        {
-            AddScore(1);           // 점수 추가
-            Debug.Log("점수를 얻었습니다!");
-            Destroy(other.gameObject); // 점수를 얻으면 충돌한 오브젝트 삭제
-        }
+        AddScore(1); // 1초마다 점수 1점씩 증가
     }
 
     public void AddScore(int score)
@@ -56,26 +64,30 @@ public class ScoreManager : MonoBehaviour
         CheckAndSetHighScore();
         Debug.Log("점수획득");
     }
-   
+
     private void CheckAndSetHighScore()
     {
-        if (CurScoreNumValue > highScore) // 만약 현재 점수가 최고 점수보다 높다면
+        if (CurScoreNumValue > highScore)
         {
-            highScore = CurScoreNumValue; // 최고 점수를 현재 점수로 업데이트
-            SaveHighScore(); // 그리고 저장
+            highScore = CurScoreNumValue;
+            SaveHighScore();
+
+            // 최고 점수 UI 숫자 업데이트
+            if (HighScoreNum != null)
+            {
+                HighScoreNum.text = highScore.ToString();
+            }
         }
     }
+
     private void SaveHighScore()
     {
-        PlayerPrefs.SetInt("HighScore", highScore); // 최고 점수를 저장
-        PlayerPrefs.Save(); // PlayerPrefs 저장
+        PlayerPrefs.SetInt("HighScore", highScore);
+        PlayerPrefs.Save();
     }
+
     private void LoadHighScore()
     {
-        highScore = PlayerPrefs.GetInt("HighScore", 0); // 저장된 최고 점수 로드 (기본값 0)
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
-
-
-    
 }
-

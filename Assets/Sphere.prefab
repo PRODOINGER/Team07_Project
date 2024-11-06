@@ -119,5 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 5953025537571092573}
-  speedBoostAmount: 0.5
+  speedBoostAmount: 10
   boostDuration: 3

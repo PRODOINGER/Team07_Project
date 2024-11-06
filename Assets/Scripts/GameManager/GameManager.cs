@@ -97,5 +97,12 @@ public class GameManager : MonoBehaviour
         {
             EndPanel.SetActive(true);
         }
+        foreach (Transform child in EndPanel.transform.parent) // EndPanel의 부모인 Canvas의 모든 자식을 순회
+        {
+            if (child.gameObject != EndPanel) // EndPanel이 아닌 경우
+            {
+                child.gameObject.SetActive(false); // 비활성화
+            }
+        }
     }
 }
