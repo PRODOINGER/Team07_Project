@@ -2406,9 +2406,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives:
-  - {fileID: 835431412}
-  - {fileID: 779602322}
   - {fileID: 2008953292}
+  - {fileID: 779602322}
+  - {fileID: 835431412}
   mineHeart1: {fileID: 21300002, guid: fed24bd82cefc0c4a8ef64dab6231b53, type: 3}
 --- !u!4 &1547527404
 Transform:

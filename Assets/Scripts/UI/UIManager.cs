@@ -10,6 +10,10 @@ public class UIManager : MonoBehaviour
     public Sprite mineHeart1;     // 충돌 시 변경할 스프라이트
     private int lifeIndex;        // 현재 변경할 Life 인덱스
 
+    private void Start()
+    {
+        lifeIndex = lives.Length - 1; // Initialize lifeIndex to the last element
+    }
 
     // 충돌에 따라 Life 스프라이트 업데이트
     public void UpdateLifeImagesOnCollision()
