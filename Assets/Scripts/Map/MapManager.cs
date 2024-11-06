@@ -1,3 +1,5 @@
+using Supercyan.FreeSample;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +24,7 @@ public class MapManager : MonoBehaviour
 
     private Queue<GameObject> mapPool = new Queue<GameObject>();
     private Vector3 nextMapPosition = Vector3.zero;
+
 
     private void Start()
     {
@@ -81,4 +84,5 @@ public class MapManager : MonoBehaviour
         Destroy(oldMap);
         mapPool.Enqueue(newMap);
     }
+
 }
