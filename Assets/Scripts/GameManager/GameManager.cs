@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI CurScoreText;
     public TextMeshProUGUI CurScoreNum;
 
-    public Button startButton;
     public ScoreManager scoreManager;
 
     public UIManager uiManager;
@@ -25,17 +24,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // 싱글톤 패턴 적용: 인스턴스가 없다면 현재 인스턴스를 사용하고 중복된 경우 파괴
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬 전환 후에도 오브젝트 유지
-        }
-        else
-        {
-            Destroy(gameObject); // 이미 인스턴스가 존재할 경우 중복 제거
-            return;
-        }
+        Time.timeScale = 1.0f;
     }
 
     private void Start()
@@ -78,10 +67,6 @@ public class GameManager : MonoBehaviour
         if (uiManager == null)
         {
             uiManager = FindObjectOfType<UIManager>();
-            if (uiManager == null)
-            {
-                Debug.LogWarning("UIManager를 찾을 수 없습니다. Bc Scene에 UIManager가 있는지 확인하세요.");
-            }
         }
     }
 

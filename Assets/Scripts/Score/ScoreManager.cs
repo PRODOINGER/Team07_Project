@@ -13,26 +13,6 @@ public class ScoreManager : MonoBehaviour
     public int CurScoreNumValue = 0;
     private int highScore = 0;
 
-    public static ScoreManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        // 싱글톤 패턴 적용: 인스턴스가 없다면 현재 인스턴스를 사용하고 중복된 경우 파괴
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬 전환 후에도 오브젝트 유지
-        }
-        else
-        {
-            Destroy(gameObject); // 이미 인스턴스가 존재할 경우 중복 제거
-            return;
-        }
-    }
-    private void Start()
-    {
-        StartScoreUI();
-    }
 
     // 점수 UI를 초기화하고 활성화하는 메서드
     public void StartScoreUI()
@@ -61,7 +41,7 @@ public class ScoreManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // 플레이어와 충돌했는지 확인
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Score"))
         {
             AddScore(1);           // 점수 추가
             Debug.Log("점수를 얻었습니다!");
@@ -74,6 +54,7 @@ public class ScoreManager : MonoBehaviour
         CurScoreNumValue += score; // 현재 점수에 추가
         UpdateScoreUI(); // 스코어 UI를 업데이트
         CheckAndSetHighScore();
+        Debug.Log("점수획득");
     }
    
     private void CheckAndSetHighScore()

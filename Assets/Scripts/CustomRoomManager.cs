@@ -51,6 +51,8 @@ namespace Supercyan.FreeSample
                 return;
             }
 
+            InitializeAccessories();
+
             accessories = new List<GameObject>
             {
                 Resources.Load<GameObject>("backpack"),
@@ -66,6 +68,28 @@ namespace Supercyan.FreeSample
 
             selectedAccessoryPrefab = accessories.Count > 0 ? accessories[0] : null;
             ShowAccessoryPreview();
+        }
+
+        private void InitializeAccessories()
+        {
+            // Player 오브젝트 하위에 확정 장착된 장신구를 제거
+            if (confirmedAccessoryInstanceHat != null)
+            {
+                Destroy(confirmedAccessoryInstanceHat);
+                confirmedAccessoryInstanceHat = null;
+            }
+            if (confirmedAccessoryInstanceBackpack != null)
+            {
+                Destroy(confirmedAccessoryInstanceBackpack);
+                confirmedAccessoryInstanceBackpack = null;
+            }
+
+            // AccessoryWearLogic에서 장착 리스트 초기화 (역순으로 제거)
+            var equippedAccessories = accessoryWearLogic.GetEquippedAccessories();
+            for (int i = equippedAccessories.Count - 1; i >= 0; i--)
+            {
+                accessoryWearLogic.Detach(equippedAccessories[i]);
+            }
         }
 
         // 미리보기 장신구를 삭제하고, 확정 장착된 장신구의 Renderer를 활성화하는 메서드
@@ -84,6 +108,7 @@ namespace Supercyan.FreeSample
             {
                 confirmedAccessoryInstanceBackpack.GetComponent<AccessoryLogic>().Renderer.enabled = true;
             }
+
         }
 
         private void ConfirmAccessory()

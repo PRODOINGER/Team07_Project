@@ -43,6 +43,9 @@ namespace Supercyan.FreeSample
 
         private const int maxCollisions = 3; // 최대 충돌 횟수
         public GameManager gameManager; // GameManager 참조
+        private bool isInitialized = false;
+
+
 
         private void Awake()
         {
@@ -82,16 +85,31 @@ namespace Supercyan.FreeSample
         {
             transform.position = initialPosition;
             m_rigidBody.velocity = Vector3.zero; // 이동 중이던 속도 초기화
+
+            // GameManager 오브젝트를 동적으로 찾아서 참조 설정
+            if (gameManager == null)
+            {
+                gameManager = GameObject.FindObjectOfType<GameManager>();
+            }
         }
 
 
         private void Start()
         {
+            {
+                StartCoroutine(InitializeAfterDelay(0.5f)); // 1초 후 초기화 완료
+            }
             // 게임 시작 시 캐릭터 이동 상태 설정
             if (m_rigidBody != null)
             {
                 m_rigidBody.velocity = new Vector3(0, 0, m_moveSpeed);
             }
+        }
+
+        private IEnumerator InitializeAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            isInitialized = true;
         }
 
         private void Update()
@@ -208,6 +226,7 @@ namespace Supercyan.FreeSample
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (!isInitialized) return;
             // 충돌한 표면이 바닥인지 확인하여 착지 상태 업데이트
             ContactPoint[] contactPoints = collision.contacts;
             for (int i = 0; i < contactPoints.Length; i++)
