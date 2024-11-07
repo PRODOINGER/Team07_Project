@@ -3,9 +3,12 @@
 
  - 2024/10/31 ~ 2024/11/07
  - 3D 환경 개발 숙련하기
-![image](https://github.com/user-attachments/assets/155819dc-5a5b-4c7f-9163-dbaf83453b7a)
+   
+ ![image](https://github.com/user-attachments/assets/155819dc-5a5b-4c7f-9163-dbaf83453b7a)
 
+ 
  자유를 꿈꾸며 도시를 달리는 당신!
+ 
  무단횡단 범죄자를 잡는 경찰을 피해 최대한 자유를 누려보세요!
 
 ## 조원
